@@ -1,29 +1,13 @@
-/* Forçando o layout a ser fixo em todas as telas */
-html, body {
-  width: 1200px; /* Define a largura fixa que será igual ao desktop */
-  overflow-x: hidden; /* Impede que a página role horizontalmente */
-  margin: 0;
-  padding: 0;
-}
+/* Estilos para os botões do menu no celular */
+@media (max-width: 768px) {
+  .menu-button {
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte */
+    padding: 15px 30px; /* Aumenta o padding dos botões para torná-los maiores */
+    margin: 10px 0; /* Ajusta o espaçamento entre os botões */
+  }
 
-.container {
-  max-width: 1200px; /* Define a largura fixa */
-  margin: 0 auto; /* Centraliza o conteúdo */
-}
-
-/* Desativando a responsividade em imagens */
-img {
-  max-width: 100%; /* Garante que as imagens não fiquem maiores que o contêiner */
-  height: auto; /* Mantém a proporção das imagens */
-}
-
-/* Desativando o redimensionamento de fontes */
-body, h1, h2, h3, p {
-  font-size: 100%; /* Não permite que as fontes sejam redimensionadas */
-  line-height: normal; /* Mantém o espaçamento entre as linhas */
-}
-
-/* Garantindo que elementos flex ou grid não ajustem o layout */
-.flex-container, .grid-container {
-  display: block; /* Força o layout em blocos fixos */
+  .menu {
+    display: flex;
+    flex-direction: column; /* Força o menu a ficar em coluna no celular */
+  }
 }
