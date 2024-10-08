@@ -1,0 +1,13 @@
+/* Estilizando botões e links para telas menores */
+@media (max-width: 768px) {
+    .resume-download-button {
+      font-size: 1.1rem;
+      padding: 12px 20px; /* Botões maiores para touch */
+    }
+  
+    .social-links a {
+      font-size: 1.1rem;
+      padding: 10px;
+    }
+  }
+  
