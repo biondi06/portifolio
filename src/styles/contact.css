@@ -1,0 +1,109 @@
+/* Estilo da página de Contato */
+.contact-container {
+  padding: 60px;
+  background-color: var(--primary-bg); /* Fundo azul escuro */
+  color: var(--primary-text); /* Texto branco */
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza a página */
+}
+
+/* Título da seção */
+.section-title {
+  text-align: center;
+  font-size: 3.5rem;
+  color: var(--primary-text);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--highlight-cyan);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* Layout da grid - 2 colunas */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dividido em 2 colunas */
+  gap: 30px;
+}
+
+.left-column, .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Cartões de contato */
+.contact-card {
+  background-color: var(--primary-bg);
+  border-left: 5px solid var(--highlight-cyan); /* Destaque lateral com ciano */
+  padding: 20px 30px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px); /* Elevação no hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-right: 20px;
+  color: var(--highlight-cyan);
+}
+
+.contact-card h3 {
+  font-size: 1.4rem;
+  color: var(--highlight-cyan);
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--primary-text);
+}
+
+/* Estilo dos links de redes sociais */
+.social-links a {
+  display: flex;
+  align-items: center;
+  color: var(--primary-text);
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.social-links a:hover {
+  color: var(--highlight-cyan); /* Cor ciano no hover */
+}
+
+.social-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 40px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr; /* Coluna única em telas menores */
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+}

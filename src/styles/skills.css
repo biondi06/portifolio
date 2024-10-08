@@ -1,0 +1,81 @@
+/* Estilo da página de Habilidades */
+.skills-container {
+  padding: 60px;
+  background-color: var(--primary-bg); /* Fundo azul escuro */
+  color: var(--primary-text); /* Texto branco */
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza a página */
+}
+
+/* Título da seção */
+.section-title {
+  text-align: center;
+  font-size: 3.5rem;
+  color: var(--primary-text);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--highlight-cyan);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* Conteúdo das Habilidades */
+.skills-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.skill-card {
+  background-color: var(--primary-bg);
+  border-left: 5px solid var(--highlight-cyan);
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-icon {
+  font-size: 6rem;
+  margin-right: 20px;
+  color: var(--highlight-cyan);
+}
+
+.skill-card h3 {
+  font-size: 1.4rem;
+  color: var(--highlight-cyan);
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--primary-text);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .skills-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-content {
+    grid-template-columns: 1fr;
+  }
+}
