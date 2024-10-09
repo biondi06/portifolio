@@ -28,7 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
-  justify-items: center; /* Centraliza os cards */
+  justify-items: center; 
 }
 
 .experience-card {
@@ -65,32 +65,31 @@
   color: var(--primary-text);
 }
 
-/* Ajustes apenas no mobile */
 @media (max-width: 768px) {
   .experience-content {
-    grid-template-columns: 1fr; /* Um card por linha no mobile */
+    grid-template-columns: 1fr; 
     padding: 20px; 
-    justify-items: center; /* Centraliza os cards no mobile */
+    justify-items: center;
   }
 
   .experience-card {
     padding: 20px 15px;
     margin-bottom: 20px;
-    text-align: center; /* Centraliza o conteúdo no mobile */
-    flex-direction: column; /* Alinha o conteúdo em coluna no mobile */
-    align-items: center; /* Centraliza ícone e texto */
+    text-align: center; 
+    flex-direction: column; 
+    align-items: center; 
   }
 
   .experience-icon {
-    font-size: 3.5rem; /* Ícone menor no mobile */
-    margin-bottom: 10px; /* Espaço abaixo do ícone */
-    margin-right: 0; /* Remove o espaçamento lateral no ícone */
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    margin-right: 0;
   }
 
   .section-title {
-    font-size: 2.5rem;
-    text-align: center; /* Garante a centralização no mobile */
-    margin-bottom: 15px; /* Reduz a margem no mobile */
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 15px; 
   }
 
   .experience-card h3 {
