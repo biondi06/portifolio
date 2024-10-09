@@ -4,6 +4,7 @@
   --primary-text: #ffffff; /* Texto principal branco */
   --highlight-cyan: #00d9ff; /* Ciano para destaques */
   --hover-pink: #ff0055; /* Rosa para hover e botões */
+  --menu-bg: rgba(13, 17, 23, 0.95); /* Fundo escuro para o menu mobile */
 }
 
 /* Estilo global */
@@ -29,30 +30,35 @@ a:hover {
   color: var(--hover-pink);
 }
 
-/* Menu de navegação */
+/* Menu de navegação centralizado */
 .navbar {
   background: rgba(13, 17, 23, 0.8); /* Fundo escuro com opacidade */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8px);
-  text-align: center;
+  text-align: center; /* Mantém o menu centralizado */
   padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-/* Ícone do menu hamburguer (visível apenas no mobile) */
 .hamburger-menu {
   display: none;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--primary-text);
+  padding-right: 20px;
+  transition: transform 0.3s ease;
 }
 
-/* Menu de navegação visível por padrão no desktop */
+.hamburger-menu:hover {
+  transform: scale(1.2);
+}
+
+/* Menu de navegação centralizado no desktop */
 .nav-list {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centraliza os itens do menu */
   align-items: center;
   list-style: none;
   padding: 0;
@@ -104,69 +110,104 @@ a:hover {
   transform: scale(1.1);
 }
 
-/* Responsividade para mobile */
+/* Seção Sobre */
+.about-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.about-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* Mantém a proporção da imagem */
+  border-radius: 50%;
+  margin: 20px auto;
+  border: 4px solid var(--highlight-cyan); /* Borda destacada ao redor da imagem */
+}
+
+.about-details {
+  flex: 1;
+  max-width: 600px;
+  margin: 20px;
+  text-align: left;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.personal-info p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+/* Menu hambúrguer no mobile */
 @media (max-width: 768px) {
   .hamburger-menu {
-    display: block;
+    display: block; /* Exibe o ícone no mobile */
+    position: absolute;
+    right: 20px;
+    top: 15px;
   }
 
   .nav-list {
     display: none;
     flex-direction: column;
-    background-color: var(--primary-bg);
+    background-color: var(--menu-bg);
     position: absolute;
     top: 60px;
     width: 100%;
-    padding: 10px 0;
+    padding: 20px 0;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
   }
 
   .nav-list.open {
     display: flex;
+    transform: translateY(0);
   }
 
   .nav-list li {
-    margin: 10px 0;
+    margin: 15px 0;
   }
 
   .nav-list a {
     font-size: 1.5rem;
     padding: 15px 30px;
-  }
-
-  /* Ajustes visuais para evitar sobreposição de informações */
-  .about-content, .section-content {
-    padding: 20px;
+    text-align: center;
   }
 
   .name {
     font-size: 2.2rem;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .about-details, .section-details {
-    margin-bottom: 20px;
-    text-align: justify;
   }
 
   .about-image img {
-    width: 100%;
-    max-width: 150px; /* Reduz o tamanho da imagem no mobile */
-    margin: 0 auto;
-    display: block;
-    border-radius: 50%;
+    width: 150px;
+    height: 150px;
     margin-bottom: 15px;
   }
 
-  /* Adiciona espaçamento entre seções para evitar sobreposição */
-  section {
-    margin-bottom: 30px;
-  }
-
-  /* Ajuste para frases dinâmicas */
-  .dynamic-phrase {
-    font-size: 1.2rem;
+  .about-details {
     text-align: center;
   }
+}
+
+/* Efeitos e transições suaves */
+section {
+  padding: 60px 0;
+  margin: 20px;
+  background: linear-gradient(135deg, var(--primary-bg), #0a0f1b);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
