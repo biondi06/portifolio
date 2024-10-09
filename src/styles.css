@@ -158,14 +158,14 @@ a:hover {
   .about-title {
     font-size: 2.5rem; /* Nome menor no mobile */
     margin-top: 20px;
-    margin-bottom: 20px; /* Aumenta o espaço abaixo do nome */
+    margin-bottom: 80px; /* Aumenta bastante o espaço abaixo do nome */
   }
 
   /* Mover a foto mais para baixo no mobile */
   .about-image img {
     width: 150px; /* Tamanho da imagem no mobile */
     height: 150px;
-    margin-top: 40px; /* Move a imagem para baixo */
+    margin-top: 80px; /* Mover a imagem significativamente para baixo */
     margin-bottom: 15px;
   }
 
