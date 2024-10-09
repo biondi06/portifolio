@@ -157,12 +157,14 @@ a:hover {
   /* Ajuste da seção "Sobre" para mobile */
   .about-title {
     font-size: 2.5rem; /* Nome menor no mobile */
-    margin-top: 30px; /* Move o nome mais acima no mobile */
+    margin-top: 30px;
   }
 
+  /* Mover a foto mais para baixo no mobile */
   .about-image img {
     width: 150px; /* Tamanho da imagem no mobile */
     height: 150px;
+    margin-top: 30px; /* Mover a imagem mais para baixo */
     margin-bottom: 15px;
   }
 
