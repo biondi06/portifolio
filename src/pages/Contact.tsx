@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
             <FaMapMarkerAlt className="contact-icon" />
             <div>
               <h3>Meu Endereço</h3>
-              <p>Rua Exemplo, 123</p>
+              <p>Rua Aristides Germano Montagnini</p>
               <p>Mogi das Cruzes, SP, Brasil</p>
             </div>
           </div>
@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
           <div className="contact-card">
             <FaEnvelope className="contact-icon" />
             <div>
-              <h3>Email</h3>
+              <h3>E-mail</h3>
               <p>gustavomolinapessoa@gmail.com</p>
             </div>
           </div>
@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
             <FaPhoneAlt className="contact-icon" />
             <div>
               <h3>Contato</h3>
-              <p>+55 11 91234-5678</p>
+              <p>+55 11 95328-9333</p>
             </div>
           </div>
         </div>

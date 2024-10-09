@@ -1,0 +1,65 @@
+/* Estilo do menu para desktop */
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .menu-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Ícone de menu hamburguer (aparece no mobile) */
+  .hamburger-menu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .hamburger-menu i {
+    font-size: 2rem;
+    color: #007bff;
+  }
+  
+  /* Estilos de responsividade para mobile */
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .menu.show {
+      display: flex;
+    }
+  
+    .hamburger-menu {
+      display: block;
+    }
+  
+    .menu-button {
+      font-size: 1.5rem;
+      padding: 15px 30px;
+      margin-bottom: 10px;
+    }
+  }
+  

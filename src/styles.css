@@ -140,21 +140,42 @@ section:hover {
   }
 }
 
-/* Estilo responsivo para mobile */
+/* Responsividade para mobile */
 @media (max-width: 768px) {
-  .nav-list {
-    flex-direction: column;
-  }
-
-  .nav-list li {
-    margin: 10px 0;
-  }
-
+  /* Ajustando o tamanho da fonte no mobile */
   .name {
     font-size: 2.5rem;
   }
 
   .dynamic-phrase {
     font-size: 1.5rem;
+  }
+
+  /* Ajuste do layout do menu no mobile */
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .nav-list {
+    flex-direction: column; /* Menu vertical no mobile */
+  }
+
+  .nav-list li {
+    margin: 10px 0;
+  }
+
+  .nav-list a {
+    font-size: 1.5rem; /* Botões maiores para mobile */
+    padding: 15px 30px;
+  }
+
+  section {
+    padding: 40px 10px;
+    margin: 10px;
+  }
+
+  /* Ajuste de padding e margens no mobile */
+  body {
+    padding: 10px;
   }
 }
