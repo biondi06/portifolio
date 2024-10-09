@@ -162,9 +162,9 @@ a:hover {
 
   /* Mover a foto mais para baixo no mobile */
   .about-image img {
-    width: 150px; /* Tamanho da imagem no mobile */
+    width: 130px; /* Tamanho da imagem no mobile */
     height: 150px;
-    margin-top: 70x; /* Ajuste correto para mover a imagem mais para baixo */
+    margin-top: 100x; /* Ajuste correto para mover a imagem mais para baixo */
     margin-bottom: 15px;
   }
 
