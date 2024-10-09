@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/home.css'; // Importando os novos estilos
+import '../styles/home.css'; 
 
 const phrases = [
   'Sou designer gráfico',
@@ -15,8 +15,8 @@ const Home: React.FC = () => {
   useEffect(() => {
     const phraseInterval = setInterval(() => {
       setCurrentPhrase((prevPhrase) => (prevPhrase + 1) % phrases.length);
-    }, 3000); // Troca de frase a cada 3 segundos
-    return () => clearInterval(phraseInterval); // Limpa o intervalo quando o componente desmonta
+    }, 3000); 
+    return () => clearInterval(phraseInterval); 
   }, []);
 
   return (
@@ -25,14 +25,13 @@ const Home: React.FC = () => {
         <h1 className="name">Gustavo Molina</h1>
         <h2 className="dynamic-phrase">{phrases[currentPhrase]}</h2>
       </div>
-      {/* Botão com ícone do LinkedIn */}
       <a
         href="https://www.linkedin.com/in/gustavo-molina-7662052ab/"
         target="_blank"
         rel="noopener noreferrer"
         className="linkedin-link"
       >
-        <i className="fab fa-linkedin"></i> {/* Ícone do LinkedIn */}
+        <i className="fab fa-linkedin"></i> 
       </a>
     </div>
   );

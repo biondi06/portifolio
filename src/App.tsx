@@ -8,8 +8,7 @@ import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
-import './styles.css';  // Importa o estilo global
-
+import './styles.css';  
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,12 +19,9 @@ const App: React.FC = () => {
   return (
     <Router>
       <nav className="navbar">
-        {/* Ícone do menu hambúrguer visível no mobile */}
         <div className="hamburger-menu" onClick={toggleMenu}>
-          <i className="fas fa-bars"></i> {/* Ícone de menu hambúrguer */}
+          <i className="fas fa-bars"></i> 
         </div>
-
-        {/* Lista de navegação */}
         <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
           <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
           <li><Link to="/about" onClick={() => setIsMenuOpen(false)}>Sobre</Link></li>

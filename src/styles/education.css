@@ -1,13 +1,11 @@
-/* Estilo da página de Educação */
 .education-container {
   padding: 60px;
-  background-color: var(--primary-bg); /* Fundo azul escuro */
-  color: var(--primary-text); /* Texto branco */
+  background-color: var(--primary-bg); 
+  color: var(--primary-text); 
   max-width: 1200px;
-  margin: 0 auto; /* Centraliza a página */
+  margin: 0 auto; 
 }
 
-/* Título da seção */
 .section-title {
   text-align: center;
   font-size: 3.5rem;
@@ -26,7 +24,6 @@
   border-radius: 2px;
 }
 
-/* Conteúdo da Educação */
 .education-content {
   display: flex;
   flex-direction: column;
@@ -37,19 +34,18 @@
   display: flex;
   align-items: center;
   background-color: var(--primary-bg);
-  border-left: 5px solid var(--highlight-cyan); /* Destaque lateral com ciano */
+  border-left: 5px solid var(--highlight-cyan); 
   padding: 20px 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s ease;
 }
 
 .education-item:hover {
-  transform: translateY(-10px); /* Elevação no hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
 }
 
-/* Detalhes da educação */
 .education-details {
   margin-left: 20px;
 }
@@ -63,21 +59,19 @@
 .education-period {
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--highlight-cyan); /* Período em ciano */
+  color: var(--highlight-cyan); 
   background-color: var(--primary-bg);
   padding: 5px 10px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras sutis para destacar os anos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* Estilizando as logos das instituições */
 .education-logo {
   width: 60px;
   height: auto;
   margin-right: 20px;
 }
 
-/* Estilo responsivo */
 @media (max-width: 768px) {
   .education-container {
     padding: 40px;

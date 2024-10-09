@@ -1,13 +1,11 @@
-/* Estilo da página de Experiência */
 .experience-container {
   padding: 60px;
-  background-color: var(--primary-bg); /* Fundo azul escuro */
-  color: var(--primary-text); /* Texto branco */
+  background-color: var(--primary-bg); 
+  color: var(--primary-text); 
   max-width: 1200px;
-  margin: 0 auto; /* Centraliza a página */
+  margin: 0 auto; 
 }
 
-/* Título da seção */
 .section-title {
   text-align: center;
   font-size: 3.5rem;
@@ -26,7 +24,6 @@
   border-radius: 2px;
 }
 
-/* Conteúdo das Experiências */
 .experience-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -67,7 +64,6 @@
   color: var(--primary-text);
 }
 
-/* Responsividade */
 @media (max-width: 1024px) {
   .experience-content {
     grid-template-columns: 1fr 1fr;
@@ -82,8 +78,8 @@
 
 @media (max-width: 768px) {
   .experience-content {
-    grid-template-columns: 1fr; /* Uma coluna no mobile */
-    padding: 20px; /* Ajuste de padding */
+    grid-template-columns: 1fr; 
+    padding: 20px; 
   }
 
   .experience-card {
@@ -92,7 +88,7 @@
   }
 
   .experience-icon {
-    font-size: 3rem; /* Ícones menores para mobile */
+    font-size: 3rem; 
   }
 
   .section-title {

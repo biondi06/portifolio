@@ -1,14 +1,12 @@
 import React from 'react';
-import '../styles/education.css'; // Estilos específicos para a educação
-import etecLogo from '../assets/etec-logo.png'; // Adicionando logo da Etec
-import umcLogo from '../assets/umc-logo.png'; // Adicionando logo da UMC
+import '../styles/education.css'; 
+import etecLogo from '../assets/etec-logo.png'; 
+import umcLogo from '../assets/umc-logo.png'; 
 
 const Education: React.FC = () => {
   return (
     <div className="education-container">
       <h1 className="section-title">Educação</h1>
-
-      {/* Listagem de Educação */}
       <div className="education-content">
         <div className="education-item">
           <img src={etecLogo} alt="Logo Etec Presidente Vargas" className="education-logo" />

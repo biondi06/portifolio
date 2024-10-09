@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/contact.css'; // Estilos específicos para contato
-import { FaLinkedin, FaGoogle, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'; // Ícones
+import '../styles/contact.css'; 
+import { FaLinkedin, FaGoogle, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'; 
 
 const Contact: React.FC = () => {
   return (
@@ -8,9 +8,7 @@ const Contact: React.FC = () => {
       <h1 className="section-title">Contato</h1>
 
       <div className="contact-grid">
-        {/* Lado esquerdo - Endereço e E-mail */}
         <div className="left-column">
-          {/* Endereço */}
           <div className="contact-card">
             <FaMapMarkerAlt className="contact-icon" />
             <div>
@@ -19,8 +17,6 @@ const Contact: React.FC = () => {
               <p>Mogi das Cruzes, SP, Brasil</p>
             </div>
           </div>
-
-          {/* E-mail */}
           <div className="contact-card">
             <FaEnvelope className="contact-icon" />
             <div>
@@ -29,10 +25,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Lado direito - Perfis Sociais e Contato */}
         <div className="right-column">
-          {/* Redes Sociais */}
           <div className="contact-card">
             <div className="social-icon-wrapper">
               <FaLinkedin className="contact-icon" />
@@ -50,8 +43,6 @@ const Contact: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Telefone */}
           <div className="contact-card">
             <FaPhoneAlt className="contact-icon" />
             <div>

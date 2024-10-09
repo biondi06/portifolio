@@ -1,13 +1,12 @@
-/* Estilos para os botões do menu no celular */
 @media (max-width: 768px) {
   .menu-button {
-    font-size: 1.5rem; /* Aumenta o tamanho da fonte */
-    padding: 15px 30px; /* Aumenta o padding dos botões para torná-los maiores */
-    margin: 10px 0; /* Ajusta o espaçamento entre os botões */
+    font-size: 1.5rem; 
+    padding: 15px 30px; 
+    margin: 10px 0; 
   }
 
   .menu {
     display: flex;
-    flex-direction: column; /* Força o menu a ficar em coluna no celular */
+    flex-direction: column;
   }
 }

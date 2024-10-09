@@ -1,39 +1,35 @@
-/* Estilo da página Home */
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 80vh; /* Ajuste para centralizar verticalmente */
-  background: var(--primary-bg); /* Fundo azul escuro */
-  color: var(--primary-text); /* Texto branco */
+  height: 80vh; 
+  background: var(--primary-bg); 
+  color: var(--primary-text); 
   text-align: center;
   padding: 20px;
 }
 
-/* Estilo do nome "Gustavo Molina" */
 .name {
-  font-size: 4rem; /* Tamanho grande e elegante */
+  font-size: 4rem; 
   font-weight: bold;
   background: linear-gradient(90deg, var(--highlight-cyan), var(--hover-pink));
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent; /* Texto com gradiente */
+  color: transparent; 
   margin-bottom: 15px;
   opacity: 0;
   animation: fadeInDown 1.5s ease-out forwards;
 }
 
-/* Estilo para as frases dinâmicas */
 .dynamic-phrase {
-  font-size: 2.2rem; /* Tamanho destacado */
-  color: var(--primary-text); /* Branco */
+  font-size: 2.2rem; 
+  color: var(--primary-text); 
   margin-top: 0;
   opacity: 0;
   animation: fadeInUp 2s ease-out forwards;
 }
 
-/* Efeito de transição para as frases */
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -55,14 +51,14 @@
     transform: translateY(0);
   }
 }
-/* Estilo do link do LinkedIn com ícone */
+
 .linkedin-link {
   margin-top: 40px;
-  font-size: 2rem; /* Tamanho do ícone */
-  color: var(--highlight-cyan); /* Cor ciano */
-  border: 2px solid var(--highlight-cyan); /* Borda ciano */
+  font-size: 2rem; 
+  color: var(--highlight-cyan); 
+  border: 2px solid var(--highlight-cyan);
   padding: 10px 20px;
-  border-radius: 50px; /* Borda arredondada */
+  border-radius: 50px; 
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -72,36 +68,35 @@
 }
 
 .linkedin-link:hover {
-  background-color: var(--highlight-cyan); /* Preenche com ciano ao passar o mouse */
-  color: var(--primary-bg); /* Texto em azul escuro no hover */
-  transform: scale(1.1); /* Leve aumento no hover */
+  background-color: var(--highlight-cyan); 
+  color: var(--primary-bg); 
+  transform: scale(1.1); 
 }
 
-/* Estilo responsivo para telas menores */
 @media (max-width: 768px) {
   .name {
-    font-size: 3rem; /* Ajuste de tamanho para telas menores */
+    font-size: 3rem;
   }
 
   .dynamic-phrase {
-    font-size: 1.8rem; /* Ajuste de tamanho para as frases */
+    font-size: 1.8rem; 
   }
 
   .linkedin-link {
-    font-size: 1.8rem; /* Ajuste de tamanho para o ícone no mobile */
+    font-size: 1.8rem; 
     width: 60px;
     height: 60px;
   }
 }
 @media (max-width: 768px) {
   .menu-button {
-    font-size: 1.5rem; /* Aumenta o tamanho da fonte */
-    padding: 15px 30px; /* Aumenta o padding dos botões para torná-los maiores */
-    margin: 10px 0; /* Ajusta o espaçamento entre os botões */
+    font-size: 1.5rem;
+    padding: 15px 30px; 
+    margin: 10px 0; 
   }
 
   .menu {
     display: flex;
-    flex-direction: column; /* Força o menu a ficar em coluna no celular */
+    flex-direction: column; 
   }
 }

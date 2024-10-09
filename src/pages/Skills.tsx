@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/skills.css'; // Estilos específicos para habilidades
-import { FaPenFancy, FaVideo, FaPaintBrush } from 'react-icons/fa'; // Ícones representando habilidades
+import '../styles/skills.css';
+import { FaPenFancy, FaVideo, FaPaintBrush } from 'react-icons/fa'; 
 
 const Skills: React.FC = () => {
   return (
@@ -8,7 +8,6 @@ const Skills: React.FC = () => {
       <h1 className="section-title">Habilidades Técnicas</h1>
 
       <div className="skills-content">
-        {/* Habilidade - Adobe Photoshop e Illustrator */}
         <div className="skill-card">
           <FaPaintBrush className="skill-icon" />
           <div>
@@ -18,8 +17,6 @@ const Skills: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* Habilidade - Canva */}
         <div className="skill-card">
           <FaPenFancy className="skill-icon" />
           <div>
@@ -29,8 +26,6 @@ const Skills: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* Habilidade - Edição de Vídeo */}
         <div className="skill-card">
           <FaVideo className="skill-icon" />
           <div>

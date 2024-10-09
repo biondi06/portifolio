@@ -1,14 +1,12 @@
-/* Estilo da página de Currículo */
 .resume-container {
     padding: 60px;
-    background-color: var(--primary-bg); /* Fundo azul escuro */
-    color: var(--primary-text); /* Texto branco */
+    background-color: var(--primary-bg); 
+    color: var(--primary-text); 
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza a página */
+    margin: 0 auto; 
     text-align: center;
   }
   
-  /* Título da seção */
   .section-title {
     font-size: 3.5rem;
     color: var(--primary-text);
@@ -25,23 +23,21 @@
     margin: 10px auto;
     border-radius: 2px;
   }
-  
-  /* Conteúdo do Currículo */
+
   .resume-content {
     margin-top: 40px;
     font-size: 1.2rem;
     line-height: 1.6;
     color: var(--primary-text);
   }
-  
-  /* Estilizando o botão de download do currículo */
+
   .resume-download-button {
     display: inline-block;
     margin-top: 30px;
     padding: 15px 30px;
     font-size: 1.2rem;
     color: var(--primary-bg);
-    background-color: var(--highlight-cyan); /* Cor ciano para o botão */
+    background-color: var(--highlight-cyan); 
     border: none;
     border-radius: 8px;
     text-decoration: none;
@@ -52,16 +48,15 @@
   }
   
   .resume-download-button:hover {
-    background-color: var(--hover-pink); /* Alterar a cor ao passar o mouse */
-    transform: translateY(-5px); /* Efeito de elevação */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    background-color: var(--hover-pink); 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
   }
   
   .resume-download-button i {
     margin-right: 10px;
   }
   
-  /* Estilo responsivo */
   @media (max-width: 768px) {
     .resume-container {
       padding: 40px;

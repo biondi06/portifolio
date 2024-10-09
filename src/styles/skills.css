@@ -1,13 +1,11 @@
-/* Estilo da página de Habilidades */
 .skills-container {
   padding: 60px;
-  background-color: var(--primary-bg); /* Fundo azul escuro */
-  color: var(--primary-text); /* Texto branco */
+  background-color: var(--primary-bg); 
+  color: var(--primary-text); 
   max-width: 1200px;
-  margin: 0 auto; /* Centraliza a página */
+  margin: 0 auto; 
 }
 
-/* Título da seção */
 .section-title {
   text-align: center;
   font-size: 3.5rem;
@@ -26,7 +24,6 @@
   border-radius: 2px;
 }
 
-/* Conteúdo das Habilidades */
 .skills-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -82,7 +79,7 @@
 
 @media (max-width: 768px) {
   .skills-content {
-    grid-template-columns: 1fr; /* Uma coluna no mobile */
+    grid-template-columns: 1fr;
     padding: 20px;
   }
 
@@ -92,7 +89,7 @@
   }
 
   .skill-icon {
-    font-size: 3rem; /* Ícones menores para mobile */
+    font-size: 3rem; 
   }
 
   .section-title {

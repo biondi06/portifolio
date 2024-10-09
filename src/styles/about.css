@@ -1,13 +1,11 @@
-/* Estilo da página "Sobre" */
 .about-container {
   padding: 60px;
-  background-color: var(--primary-bg); /* Fundo azul escuro */
-  color: var(--primary-text); /* Texto branco */
-  max-width: 1200px; /* Limitar a largura para não ficar muito larga em telas grandes */
-  margin: 0 auto; /* Centraliza a página */
+  background-color: var(--primary-bg); 
+  color: var(--primary-text); 
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
-/* Título da seção */
 .section-title {
   text-align: center;
   font-size: 3.5rem;
@@ -26,34 +24,30 @@
   border-radius: 2px;
 }
 
-/* Estilizando o conteúdo sobre */
 .about-content {
   display: flex;
-  flex-wrap: wrap; /* Responsividade automática */
+  flex-wrap: wrap; 
   justify-content: space-between;
   align-items: center;
   margin-bottom: 60px;
   gap: 40px;
 }
 
-/* Imagem de perfil com estilo moderno */
 .about-image img {
   width: 260px;
   height: 260px;
-  border-radius: 50%; /* Deixa a imagem redonda */
-  object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra suave */
-  transition: all 0.4s ease; /* Transição suave */
-  margin-top: -117px; /* Eleva a imagem um pouco */
+  border-radius: 50%; 
+  object-fit: cover; 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+  transition: all 0.4s ease; 
+  margin-top: -117px; 
 }
 
-/* Efeito de hover suave para a imagem */
 .about-image img:hover {
-  transform: scale(1.08); /* Leve zoom ao passar o mouse */
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no hover */
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); 
 }
 
-/* Estilo para a descrição e informações pessoais */
 .about-details {
   flex: 1;
   margin-left: 40px;
@@ -66,19 +60,17 @@
   margin-bottom: 20px;
 }
 
-/* Informações pessoais */
 .personal-info p {
   margin: 10px 0;
   font-size: 1.2rem;
-  color: var(--highlight-cyan); /* Cor ciano */
+  color: var(--highlight-cyan); 
 }
 
 .personal-info i {
   margin-right: 10px;
-  color: var(--highlight-cyan); /* Ícones com a cor ciano */
+  color: var(--highlight-cyan); 
 }
 
-/* Seção de interesses */
 .interests {
   margin-top: 40px;
 }
@@ -123,13 +115,12 @@
 }
 
 .interest-card:hover {
-  background-color: var(--highlight-cyan); /* Cor ciano no hover */
-  color: var(--primary-bg); /* Texto azul escuro no hover */
-  transform: scale(1.08); /* Efeito de zoom */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+  background-color: var(--highlight-cyan); 
+  color: var(--primary-bg); 
+  transform: scale(1.08); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
 }
 
-/* Estilo responsivo */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;

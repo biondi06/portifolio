@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/projects.css'; // Estilos específicos para projetos
-import { FaPalette, FaBullhorn, FaChartLine } from 'react-icons/fa'; // Ícones
+import '../styles/projects.css'; 
+import { FaPalette, FaBullhorn, FaChartLine } from 'react-icons/fa'; 
 
 const Projects: React.FC = () => {
   return (
@@ -8,7 +8,6 @@ const Projects: React.FC = () => {
       <h1 className="section-title">Projetos</h1>
 
       <div className="projects-content">
-        {/* Projeto - Publicações em Redes Sociais */}
         <div className="project-card">
           <FaBullhorn className="project-icon" />
           <div>
@@ -18,8 +17,6 @@ const Projects: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* Projeto - Identidades Visuais */}
         <div className="project-card">
           <FaPalette className="project-icon" />
           <div>
@@ -29,8 +26,6 @@ const Projects: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* Projeto - Campanhas Digitais */}
         <div className="project-card">
           <FaChartLine className="project-icon" />
           <div>

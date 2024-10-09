@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/resume.css'; // Estilos específicos para o currículo
+import '../styles/resume.css'; 
 
 const Resume: React.FC = () => {
   return (
@@ -8,8 +8,6 @@ const Resume: React.FC = () => {
 
       <div className="resume-content">
         <p>Baixe meu currículo clicando no botão abaixo:</p>
-
-        {/* Botão para baixar o currículo */}
         <a href="/curriculo-gustavo-molina.pdf" download="Curriculo_Gustavo_Molina.pdf" className="resume-download-button">
           <i className="fas fa-download"></i> Baixar Currículo
         </a>

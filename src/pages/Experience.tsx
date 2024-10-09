@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/experience.css'; // Estilos específicos para experiência
-import { FaPaintBrush, FaLaptopCode, FaBullhorn } from 'react-icons/fa'; // Ícones
+import '../styles/experience.css'; 
+import { FaPaintBrush, FaLaptopCode, FaBullhorn } from 'react-icons/fa'; 
 
 const Experience: React.FC = () => {
   return (
@@ -8,7 +8,6 @@ const Experience: React.FC = () => {
       <h1 className="section-title">Experiências Profissionais</h1>
 
       <div className="experience-content">
-        {/* Primeira Experiência - Criações Visuais */}
         <div className="experience-card">
           <FaPaintBrush className="experience-icon" />
           <div>
@@ -18,8 +17,6 @@ const Experience: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* Segunda Experiência - Desenvolvimento Estratégico */}
         <div className="experience-card">
           <FaLaptopCode className="experience-icon" />
           <div>
@@ -29,8 +26,6 @@ const Experience: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* Terceira Experiência - Engajamento Visual */}
         <div className="experience-card">
           <FaBullhorn className="experience-icon" />
           <div>
