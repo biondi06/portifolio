@@ -10,7 +10,7 @@
   text-align: center;
   font-size: 3.5rem;
   color: var(--primary-text);
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reduzi a margem inferior */
   position: relative;
 }
 
@@ -40,7 +40,7 @@
   object-fit: cover; 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
   transition: all 0.4s ease; 
-  margin-top: -117px; 
+  margin-top: -80px; /* Subi a imagem levemente */
 }
 
 .about-image img:hover {
@@ -128,24 +128,24 @@
     text-align: center;
   }
 
-  /* Ajuste para garantir que o nome e a foto fiquem separados */
+  /* Ajuste para garantir que o nome e a foto fiquem separados e mais próximos */
   .section-title {
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduzi a margem entre o nome e a imagem */
   }
 
   .about-image {
-    margin-bottom: 30px; /* Aumenta o espaço abaixo da imagem */
+    margin-bottom: 20px; /* Aumentei o espaço abaixo da imagem */
   }
 
   .about-image img {
     width: 200px;
     height: 200px;
-    margin-top: 0; /* Remove o deslocamento no topo */
+    margin-top: 20px; /* Desci a imagem um pouco mais */
   }
 
   .about-details {
     margin-left: 0;
-    margin-top: 30px; /* Adiciona um espaço superior entre a imagem e os detalhes */
+    margin-top: 20px; /* Deixei o texto mais próximo da imagem */
   }
 
   .interest-cards {
