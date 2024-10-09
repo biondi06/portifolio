@@ -19,11 +19,10 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      {/* Menu de navegação horizontal e centralizado */}
       <nav className="navbar">
-        {/* Ícone do menu hambúrguer visível apenas em dispositivos móveis */}
+        {/* Ícone do menu hambúrguer visível no mobile */}
         <div className="hamburger-menu" onClick={toggleMenu}>
-          <i className="fas fa-bars"></i>
+          <i className="fas fa-bars"></i> {/* Ícone de menu hambúrguer */}
         </div>
 
         {/* Lista de navegação */}
@@ -39,7 +38,6 @@ const App: React.FC = () => {
         </ul>
       </nav>
 
-      {/* Rotas para cada página */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

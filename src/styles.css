@@ -10,9 +10,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif; /* Fonte moderna */
-  background-color: var(--primary-bg); /* Fundo da página */
-  color: var(--primary-text); /* Texto principal branco */
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,14 +26,14 @@ a {
 }
 
 a:hover {
-  color: var(--hover-pink); /* Rosa ao passar o mouse */
+  color: var(--hover-pink);
 }
 
 /* Menu de navegação */
 .navbar {
   background: rgba(13, 17, 23, 0.8); /* Fundo escuro com opacidade */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  backdrop-filter: blur(8px); /* Desfoque no fundo */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
   text-align: center;
   padding: 15px 0;
   position: sticky;
@@ -41,19 +41,42 @@ a:hover {
   z-index: 10;
 }
 
+/* Ícone do menu hamburguer (visível apenas no mobile) */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--primary-text);
+}
+
+/* Menu de navegação visível por padrão no desktop */
 .nav-list {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
+  padding: 0;
 }
 
 .nav-list li {
-  margin: 0 20px; /* Espaçamento entre os itens */
+  margin: 0 20px;
+  position: relative;
+}
+
+/* Adiciona um ponto antes de cada link */
+.nav-list li::before {
+  content: "•";
+  color: var(--highlight-cyan);
+  font-size: 1.2rem;
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .nav-list a {
   font-size: 1.2rem;
-  color: var(--primary-text); /* Cor do texto */
+  color: var(--primary-text);
   padding: 10px 15px;
   position: relative;
   overflow: hidden;
@@ -65,7 +88,7 @@ a:hover {
   position: absolute;
   width: 0%;
   height: 100%;
-  background: var(--highlight-cyan); /* Efeito hover ciano */
+  background: var(--highlight-cyan);
   top: 0;
   left: 0;
   z-index: -1;
@@ -73,91 +96,33 @@ a:hover {
 }
 
 .nav-list a:hover::before {
-  width: 100%; /* Preenchimento ao passar o mouse */
+  width: 100%;
 }
 
 .nav-list a:hover {
-  color: var(--hover-pink); /* Rosa no texto ao passar o mouse */
-  transform: scale(1.1); /* Leve aumento */
-}
-
-/* Seções com gradiente e sombra */
-section {
-  padding: 60px 0;
-  margin: 20px;
-  background: linear-gradient(135deg, var(--primary-bg), #0a0f1b); /* Removido o roxo */
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-section:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra mais intensa ao passar o mouse */
-}
-
-/* Estilo do nome com gradiente */
-.name {
-  font-size: 3.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, var(--highlight-cyan), var(--hover-pink));
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent; /* Texto com gradiente */
-  margin-bottom: 15px;
-  opacity: 0;
-  animation: fadeInDown 1.5s ease-out forwards;
-}
-
-/* Estilo para as frases dinâmicas */
-.dynamic-phrase {
-  font-size: 1.8rem;
-  color: var(--primary-text); /* Branco */
-  margin-top: 0;
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-/* Animações */
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  color: var(--hover-pink);
+  transform: scale(1.1);
 }
 
 /* Responsividade para mobile */
 @media (max-width: 768px) {
-  /* Ajustando o tamanho da fonte no mobile */
-  .name {
-    font-size: 2.5rem;
-  }
-
-  .dynamic-phrase {
-    font-size: 1.5rem;
-  }
-
-  /* Ajuste do layout do menu no mobile */
-  .navbar {
-    padding: 10px 0;
+  .hamburger-menu {
+    display: block;
   }
 
   .nav-list {
-    flex-direction: column; /* Menu vertical no mobile */
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary-bg);
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-list.open {
+    display: flex;
   }
 
   .nav-list li {
@@ -165,17 +130,7 @@ section:hover {
   }
 
   .nav-list a {
-    font-size: 1.5rem; /* Botões maiores para mobile */
+    font-size: 1.5rem;
     padding: 15px 30px;
-  }
-
-  section {
-    padding: 40px 10px;
-    margin: 10px;
-  }
-
-  /* Ajuste de padding e margens no mobile */
-  body {
-    padding: 10px;
   }
 }
