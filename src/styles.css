@@ -10,10 +10,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--primary-bg);
-  color: var(--primary-text);
-  min-height: 100vh;
+  font-family: 'Poppins', sans-serif; /* Fonte moderna */
+  background-color: var(--primary-bg); /* Fundo da página */
+  color: var(--primary-text); /* Texto principal branco */
   display: flex;
   flex-direction: column;
 }
@@ -26,44 +25,48 @@ a {
 }
 
 a:hover {
-  color: var(--hover-pink);
+  color: var(--hover-pink); /* Rosa ao passar o mouse */
 }
 
 /* Menu de navegação */
 .navbar {
-  background: rgba(13, 17, 23, 0.8); /* Fundo escuro com opacidade */
+  background: rgba(13, 17, 23, 0.9); /* Fundo escuro com opacidade */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  text-align: center;
-  padding: 15px 0;
+  backdrop-filter: blur(8px); /* Desfoque no fundo */
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Ícone do menu hamburguer (visível apenas no mobile) */
+/* Ícone do menu hambúrguer no mobile */
 .hamburger-menu {
   display: none;
   cursor: pointer;
   font-size: 2rem;
   color: var(--primary-text);
+  padding-right: 20px;
 }
 
-/* Menu de navegação visível por padrão no desktop */
+/* Menu visível no desktop */
 .nav-list {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
+/* Ajustes nos itens do menu */
 .nav-list li {
-  margin: 0 20px;
+  margin: 0 15px;
   position: relative;
 }
 
-/* Adiciona um ponto antes de cada link */
 .nav-list li::before {
   content: "•";
   color: var(--highlight-cyan);
@@ -76,10 +79,8 @@ a:hover {
 
 .nav-list a {
   font-size: 1.2rem;
-  color: var(--primary-text);
   padding: 10px 15px;
-  position: relative;
-  overflow: hidden;
+  color: var(--primary-text);
   transition: all 0.3s ease;
 }
 
@@ -106,31 +107,119 @@ a:hover {
 
 /* Responsividade para mobile */
 @media (max-width: 768px) {
+  /* Exibe o menu hambúrguer no mobile */
   .hamburger-menu {
     display: block;
   }
 
+  /* Menu escondido no mobile por padrão */
   .nav-list {
     display: none;
     flex-direction: column;
     background-color: var(--primary-bg);
     position: absolute;
-    top: 60px;
+    top: 50px;
     width: 100%;
-    padding: 10px 0;
+    padding: 20px 0;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 100;
   }
 
+  /* Exibe o menu no mobile quando aberto */
   .nav-list.open {
     display: flex;
   }
 
   .nav-list li {
-    margin: 10px 0;
+    margin: 15px 0;
   }
 
   .nav-list a {
     font-size: 1.5rem;
     padding: 15px 30px;
+    text-align: center;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  /* Ajustes no layout de seções */
+  section {
+    padding: 40px 20px;
+    margin: 10px;
+  }
+
+  /* Ajuste do tamanho da fonte do nome e das frases dinâmicas */
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .dynamic-phrase {
+    font-size: 1.4rem;
+  }
+
+  /* Garantindo que o conteúdo fique centralizado e espaçado */
+  body {
+    padding: 0 10px;
+  }
+}
+
+/* Seções */
+section {
+  padding: 60px 0;
+  margin: 20px;
+  background: linear-gradient(135deg, var(--primary-bg), #0a0f1b);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo do nome com gradiente */
+.name {
+  font-size: 3.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--highlight-cyan), var(--hover-pink));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeInDown 1.5s ease-out forwards;
+}
+
+/* Estilo das frases dinâmicas */
+.dynamic-phrase {
+  font-size: 1.8rem;
+  color: var(--primary-text);
+  margin-top: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Animações */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
