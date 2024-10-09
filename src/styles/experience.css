@@ -64,31 +64,26 @@
   color: var(--primary-text);
 }
 
-@media (max-width: 1024px) {
-  .experience-content {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
+/* Ajustes apenas no mobile */
 @media (max-width: 768px) {
   .experience-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .experience-content {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* Um card por linha no mobile */
     padding: 20px; 
+    justify-items: center; /* Centraliza os cards no mobile */
   }
 
   .experience-card {
     padding: 20px 15px;
     margin-bottom: 20px;
+    text-align: center; /* Centraliza o conteúdo no mobile */
+    flex-direction: column; /* Alinha o conteúdo em coluna no mobile */
+    align-items: center; /* Centraliza ícone e texto */
   }
 
   .experience-icon {
-    font-size: 3rem; 
+    font-size: 3.5rem; /* Ícone menor no mobile */
+    margin-bottom: 10px; /* Espaço abaixo do ícone */
+    margin-right: 0; /* Remove o espaçamento lateral no ícone */
   }
 
   .section-title {
