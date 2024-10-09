@@ -1,62 +1,77 @@
 .menu-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #0d1117; /* Fundo mais escuro e moderno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #00d9ff; /* Cor de botão mais vibrante */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px; /* Botões arredondados */
+  margin-right: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+.menu-button:hover {
+  background-color: #00a8cc; /* Cor de hover mais sutil */
+  transform: scale(1.05); /* Leve aumento no hover */
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-menu i {
+  font-size: 2.5rem; /* Ícone de menu maior */
+  color: #00d9ff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger-menu i:hover {
+  color: #00a8cc;
+  transform: rotate(90deg); /* Rotação no hover para um efeito moderno */
+}
+
+@media (max-width: 768px) {
   .menu {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .menu-button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .menu-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .hamburger-menu {
     display: none;
-    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #0d1117; /* Fundo do menu mobile */
+    padding: 20px;
+    border-radius: 10px; /* Bordas arredondadas no mobile */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
-  
-  .hamburger-menu i {
-    font-size: 2rem;
-    color: #007bff;
+
+  .menu.show {
+    display: flex;
   }
-  
-  @media (max-width: 768px) {
-    .menu {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-  
-    .menu.show {
-      display: flex;
-    }
-  
-    .hamburger-menu {
-      display: block;
-    }
-  
-    .menu-button {
-      font-size: 1.5rem;
-      padding: 15px 30px;
-      margin-bottom: 10px;
-    }
+
+  .hamburger-menu {
+    display: block;
   }
-  
+
+  .menu-button {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    margin-bottom: 10px;
+    width: 90%; /* Botões ocupam quase toda a largura no mobile */
+    text-align: center;
+  }
+}
