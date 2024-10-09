@@ -3,8 +3,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #0d1117; /* Fundo mais escuro e moderno */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  background-color: #0d1117; /* Fundo escuro e tecnológico */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave e mais nítida */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil no fim do menu */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .menu {
@@ -15,20 +19,22 @@
 }
 
 .menu-button {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  background-color: #00d9ff; /* Cor de botão mais vibrante */
+  padding: 12px 25px;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #00d9ff, #007bff); /* Gradiente moderno */
   color: #ffffff;
   border: none;
   cursor: pointer;
-  border-radius: 25px; /* Botões arredondados */
-  margin-right: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+  border-radius: 30px; /* Botões totalmente arredondados */
+  margin-right: 12px;
+  transition: background 0.4s ease, box-shadow 0.3s ease, transform 0.4s ease;
+  box-shadow: 0 6px 15px rgba(0, 217, 255, 0.3); /* Sombra leve nos botões */
 }
 
 .menu-button:hover {
-  background-color: #00a8cc; /* Cor de hover mais sutil */
-  transform: scale(1.05); /* Leve aumento no hover */
+  background: linear-gradient(135deg, #00a8cc, #0056b3); /* Efeito gradiente no hover */
+  box-shadow: 0 8px 20px rgba(0, 217, 255, 0.6); /* Sombra mais intensa no hover */
+  transform: translateY(-3px); /* Elevação no hover */
 }
 
 .hamburger-menu {
@@ -37,14 +43,14 @@
 }
 
 .hamburger-menu i {
-  font-size: 2.5rem; /* Ícone de menu maior */
+  font-size: 2.7rem; /* Ícone maior */
   color: #00d9ff;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.4s ease, transform 0.3s ease;
 }
 
 .hamburger-menu i:hover {
-  color: #00a8cc;
-  transform: rotate(90deg); /* Rotação no hover para um efeito moderno */
+  color: #007bff;
+  transform: rotate(180deg); /* Rotação completa no hover */
 }
 
 @media (max-width: 768px) {
@@ -53,10 +59,11 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #0d1117; /* Fundo do menu mobile */
-    padding: 20px;
-    border-radius: 10px; /* Bordas arredondadas no mobile */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: #0d1117; /* Fundo do menu no mobile */
+    padding: 30px 0;
+    border-radius: 10px; /* Bordas arredondadas para o menu mobile */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease; /* Transição suave ao abrir o menu */
   }
 
   .menu.show {
@@ -69,9 +76,17 @@
 
   .menu-button {
     font-size: 1.5rem;
-    padding: 15px 30px;
-    margin-bottom: 10px;
-    width: 90%; /* Botões ocupam quase toda a largura no mobile */
+    padding: 15px 35px;
+    margin-bottom: 12px;
+    width: 90%; /* Largura maior no mobile */
     text-align: center;
+    background: linear-gradient(135deg, #00d9ff, #007bff); /* Gradiente no mobile */
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .menu-button:hover {
+    background: linear-gradient(135deg, #00a8cc, #0056b3);
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.6);
+    transform: translateY(-3px);
   }
 }
