@@ -111,65 +111,15 @@ a:hover {
   color: var(--hover-pink);
 }
 
-/* Responsividade para mobile - ajustes específicos */
+/* Responsividade para mobile - Ajuste do Nome e Imagem */
 @media (max-width: 768px) {
-  /* Menu hambúrguer */
-  .hamburger-menu {
-    display: block; /* Exibe o menu hambúrguer no mobile */
-  }
-
-  .nav-list {
-    display: none; /* Menu escondido por padrão no mobile */
-    flex-direction: column;
-    background-color: var(--menu-bg);
-    position: absolute;
-    top: 60px;
-    width: 100%;
-    padding: 20px 0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    z-index: 100;
-    transition: transform 0.3s ease;
-  }
-
-  .nav-list.open {
-    display: flex; /* Exibe o menu no mobile ao clicar no hambúrguer */
-  }
-
-  .nav-list li {
-    margin: 15px 0;
-  }
-
-  .nav-list a {
-    font-size: 1.5rem; /* Aumenta o tamanho no mobile */
-    padding: 15px 30px;
-    text-align: center;
-  }
-
-  /* Centralizando o ícone do menu hambúrguer */
-  .navbar {
-    justify-content: center;
-  }
-
-  .hamburger-menu {
-    position: relative; /* Mantém o hambúrguer centralizado */
-  }
-
-  /* Ajuste da seção "Sobre" para mobile */
+  /* Aumentar o espaço entre o nome e a imagem no mobile */
   .about-title {
-    font-size: 2.5rem; /* Nome menor no mobile */
-    margin-top: 35px;
+    margin-bottom: 30px; /* Espaço maior entre o nome e a imagem */
   }
 
-  /* Mover a foto mais para baixo no mobile */
   .about-image img {
-    width: 150px; /* Tamanho da imagem no mobile */
-    height: 150px;
-    margin-top: 60x; /* Mover a imagem mais para baixo */
-    margin-bottom: 15px;
-  }
-
-  .about-details {
-    text-align: center;
+    margin-top: 10px; /* Garantir que a imagem fique abaixo do nome */
   }
 }
 
