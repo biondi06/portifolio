@@ -1,6 +1,6 @@
 /* Paleta de cores */
 :root {
-  --primary-bg: #ff0000;         /* Preto quase puro, mais neutro */
+  --primary-bg: #050000;         /* Preto quase puro, mais neutro */
   --primary-text: #f5f5f7;       /* Branco levemente acinzentado, estilo Apple */
   --secondary-text: #a1a1a6;     /* Cinza para textos secundários */
   --highlight-cyan: #2997ff;     /* Azul suave (tipo Apple) no lugar do ciano neon */
