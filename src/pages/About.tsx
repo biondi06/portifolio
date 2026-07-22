@@ -5,11 +5,11 @@ import minhaImagem from '../assets/minha-imagem.jpg';
 const About: React.FC = () => {
   return (
     <div className="about-container">
-      <h1 className="section-title">Gustavo Molina</h1>
+      <h1 className="section-title">Gustavo Pessoa</h1>
 
       <div className="about-content">
         <div className="about-image">
-          <img src={minhaImagem} alt="Gustavo Molina" />
+          <img src={minhaImagem} alt="Gustavo Pessoa" />
         </div>
 
         <div className="about-details">
