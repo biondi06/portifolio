@@ -13,7 +13,6 @@ const Contact: React.FC = () => {
             <FaMapMarkerAlt className="contact-icon" />
             <div>
               <h3>Meu Endereço</h3>
-              <p>Rua Aristides Germano Montagnini</p>
               <p>Mogi das Cruzes, SP, Brasil</p>
             </div>
           </div>
