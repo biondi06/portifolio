@@ -26,7 +26,7 @@ const Home: React.FC = () => {
         <h2 className="dynamic-phrase">{phrases[currentPhrase]}</h2>
       </div>
       <a
-        href="https://www.linkedin.com/in/gustavo-molina-7662052ab/"
+        href="https://www.linkedin.com/in/gustavo-molina-789001380/"
         target="_blank"
         rel="noopener noreferrer"
         className="linkedin-link"
