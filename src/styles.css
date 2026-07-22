@@ -1,10 +1,12 @@
 /* Paleta de cores */
 :root {
-  --primary-bg: #0d1117; /* Fundo azul escuro */
-  --primary-text: #ffffff; /* Texto principal branco */
-  --highlight-cyan: #00d9ff; /* Ciano para destaques */
-  --hover-pink: #ff0055; /* Rosa para hover e botões */
-  --menu-bg: rgba(13, 17, 23, 0.95); /* Fundo escuro para o menu mobile */
+  --primary-bg: #ff0000;         /* Preto quase puro, mais neutro */
+  --primary-text: #f5f5f7;       /* Branco levemente acinzentado, estilo Apple */
+  --secondary-text: #a1a1a6;     /* Cinza para textos secundários */
+  --highlight-cyan: #2997ff;     /* Azul suave (tipo Apple) no lugar do ciano neon */
+  --hover-pink: #f5f5f7;         /* Hover agora é clareamento sutil, não rosa */
+  --menu-bg: rgba(10, 10, 12, 0.98); /* Fundo do menu mobile, quase opaco */
+  --border-subtle: rgba(255, 255, 255, 0.08); /* Linhas finas para separar áreas */
 }
 
 /* Estilo global */
@@ -23,19 +25,20 @@ body {
 a {
   text-decoration: none;
   color: var(--primary-text);
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.25s ease, opacity 0.25s ease;
 }
 
 a:hover {
-  color: var(--hover-pink);
-  transform: scale(1.1); /* Leve aumento no hover */
+  color: var(--secondary-text);
+  transform: none; /* Remove o "scale" — flat design não usa esse tipo de efeito */
 }
 
 /* Menu de navegação */
 .navbar {
-  background: rgba(13, 17, 23, 0.8);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
+  background: var(--primary-bg);
+  border-bottom: 1px solid var(--border-subtle); /* Substitui a sombra por uma linha fina */
+  box-shadow: none;
+  backdrop-filter: none;
   text-align: center;
   padding: 15px 0;
   position: sticky;
@@ -47,15 +50,15 @@ a:hover {
 }
 
 .hamburger-menu {
-  display: none; /* Exibe apenas no mobile */
+  display: none;
   cursor: pointer;
   font-size: 2.5rem;
   color: var(--primary-text);
-  transition: transform 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 .hamburger-menu:hover {
-  transform: scale(1.2); /* Efeito de leve aumento */
+  opacity: 0.6; /* Efeito mais discreto, sem "zoom" */
 }
 
 /* Menu de navegação visível no desktop */
@@ -72,67 +75,51 @@ a:hover {
   position: relative;
 }
 
+/* Removida a bolinha ciano antes dos itens — deixa mais limpo */
 .nav-list li::before {
-  content: "•";
-  color: var(--highlight-cyan);
-  font-size: 1.2rem;
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  transform: translateY(-50%);
+  content: none;
 }
 
 .nav-list a {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding: 10px 15px;
-  color: var(--primary-text);
+  color: var(--secondary-text);
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: color 0.25s ease;
 }
 
+/* Removido o efeito de "preenchimento" ao passar o mouse — flat design usa apenas cor */
 .nav-list a::before {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 100%;
-  background: var(--highlight-cyan);
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s ease;
-}
-
-.nav-list a:hover::before {
-  width: 100%;
+  content: none;
 }
 
 .nav-list a:hover {
-  color: var(--hover-pink);
+  color: var(--primary-text);
 }
 
 /* Responsividade para mobile - ajustes específicos */
 @media (max-width: 768px) {
-  /* Menu hambúrguer */
   .hamburger-menu {
-    display: block; /* Exibe o menu hambúrguer no mobile */
+    display: block;
   }
 
   .nav-list {
-    display: none; /* Menu escondido por padrão no mobile */
+    display: none;
     flex-direction: column;
     background-color: var(--menu-bg);
     position: absolute;
     top: 60px;
     width: 100%;
     padding: 20px 0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+    border-top: 1px solid var(--border-subtle);
     z-index: 100;
     transition: transform 0.3s ease;
   }
 
   .nav-list.open {
-    display: flex; /* Exibe o menu no mobile ao clicar no hambúrguer */
+    display: flex;
   }
 
   .nav-list li {
@@ -140,32 +127,29 @@ a:hover {
   }
 
   .nav-list a {
-    font-size: 1.5rem; /* Aumenta o tamanho no mobile */
+    font-size: 1.5rem;
     padding: 15px 30px;
     text-align: center;
   }
 
-  /* Centralizando o ícone do menu hambúrguer */
   .navbar {
     justify-content: center;
   }
 
   .hamburger-menu {
-    position: relative; /* Mantém o hambúrguer centralizado */
+    position: relative;
   }
 
-  /* Ajuste da seção "Sobre" para mobile */
   .about-title {
-    font-size: 2.5rem; /* Nome menor no mobile */
+    font-size: 2.5rem;
     margin-top: 20px;
-    margin-bottom: 100px; /* Aumenta muito o espaço abaixo do nome */
+    margin-bottom: 100px;
   }
 
-  /* Mover a foto mais para baixo no mobile */
   .about-image img {
-    width: 150px; /* Tamanho da imagem no mobile */
+    width: 150px;
     height: 150px;
-    margin-top: 120px; /* Mover a imagem significativamente para baixo */
+    margin-top: 120px;
     margin-bottom: 15px;
   }
 
@@ -178,12 +162,13 @@ a:hover {
 section {
   padding: 60px 0;
   margin: 20px;
-  background: linear-gradient(135deg, var(--primary-bg), #0a0f1b);
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  background: var(--primary-bg);          /* Removido o gradiente, agora é fundo sólido */
+  border: 1px solid var(--border-subtle); /* Linha fina no lugar da sombra pesada */
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color 0.25s ease;
 }
 
 section:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15); /* Realce sutil no hover, sem sombra grande */
 }
