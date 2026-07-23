@@ -1,0 +1,306 @@
+/* Paleta de cores */
+:root {
+  --primary-bg: #0a0a0c;         /* Preto quase puro, mais neutro */
+  --primary-text: #f5f5f7;       /* Branco levemente acinzentado, estilo Apple */
+  --secondary-text: #a1a1a6;     /* Cinza para textos secundários */
+  --highlight-cyan: #2997ff;     /* Azul suave (tipo Apple) no lugar do ciano neon */
+  --hover-pink: #f5f5f7;         /* Hover agora é clareamento sutil, não rosa */
+  --menu-bg: rgba(10, 10, 12, 0.98); /* Fundo do menu mobile, quase opaco */
+  --border-subtle: rgba(255, 255, 255, 0.08); /* Linhas finas para separar áreas */
+}
+
+/* Estilo global */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para links */
+a {
+  text-decoration: none;
+  color: var(--primary-text);
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+a:hover {
+  color: var(--secondary-text);
+  transform: none; /* Remove o "scale" — flat design não usa esse tipo de efeito */
+}
+
+/* Menu de navegação */
+.navbar {
+  background: var(--primary-bg);
+  border-bottom: 1px solid var(--border-subtle); /* Substitui a sombra por uma linha fina */
+  box-shadow: none;
+  backdrop-filter: none;
+  text-align: center;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--primary-text);
+  transition: opacity 0.25s ease;
+}
+
+.hamburger-menu:hover {
+  opacity: 0.6; /* Efeito mais discreto, sem "zoom" */
+}
+
+/* Menu de navegação visível no desktop */
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 0 20px;
+  position: relative;
+}
+
+/* Removida a bolinha ciano antes dos itens — deixa mais limpo */
+.nav-list li::before {
+  content: none;
+}
+
+.nav-list a {
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  color: var(--secondary-text);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.25s ease;
+}
+
+/* Removido o efeito de "preenchimento" ao passar o mouse — flat design usa apenas cor */
+.nav-list a::before {
+  content: none;
+}
+
+.nav-list a:hover {
+  color: var(--primary-text);
+}
+
+/* Responsividade para mobile - ajustes específicos */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: var(--menu-bg);
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    padding: 20px 0;
+    box-shadow: none;
+    border-top: 1px solid var(--border-subtle);
+    z-index: 100;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 15px 0;
+  }
+
+  .nav-list a {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    text-align: center;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .hamburger-menu {
+    position: relative;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+
+  .about-image img {
+    width: 150px;
+    height: 150px;
+    margin-top: 120px;
+    margin-bottom: 15px;
+  }
+
+  .about-details {
+    text-align: center;
+  }
+}
+
+/* Efeitos e transições suaves */
+section {
+  padding: 60px 0;
+  margin: 20px;
+  background: var(--primary-bg);          /* Removido o gradiente, agora é fundo sólido */
+  border: 1px solid var(--border-subtle); /* Linha fina no lugar da sombra pesada */
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color 0.25s ease;
+}
+
+section:hover {
+  border-color: rgba(255, 255, 255, 0.15); /* Realce sutil no hover, sem sombra grande */
+}
+/* ============================================================
+   LIQUID GLASS BUTTONS — estilo Apple (visionOS / iOS)
+   Cole este bloco no FINAL do seu styles.css.
+   Não mexe em HTML, JS, cores da identidade visual ou layout.
+   ============================================================ */
+
+button,
+.btn,
+.menu-button,
+input[type="submit"],
+input[type="button"] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.05);
+
+  color: inherit;
+  cursor: pointer;
+
+  transition:
+    transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    background 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    backdrop-filter 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Reflexo de vidro (diagonal), some por padrão e "desliza" no hover */
+button::before,
+.btn::before,
+.menu-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0) 65%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  background-size: 250% 250%;
+  background-position: 0% 0%;
+  opacity: 0.6;
+
+  transition:
+    background-position 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.4s ease;
+}
+
+/* Garante que texto/ícone fiquem sempre acima do reflexo */
+button > *,
+.btn > *,
+.menu-button > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Ícones sempre nítidos (evita blur herdado em SVG/i) */
+button svg,
+.btn svg,
+.menu-button svg,
+button i,
+.btn i,
+.menu-button i {
+  filter: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hover — mais vidro, mais brilho, reflexo desliza */
+button:hover,
+.btn:hover,
+.menu-button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  transform: scale(1.04);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 3px rgba(255, 255, 255, 0.08);
+}
+
+button:hover::before,
+.btn:hover::before,
+.menu-button:hover::before {
+  background-position: 100% 100%;
+  opacity: 0.9;
+}
+
+/* Clique — vidro "pressionado" */
+button:active,
+.btn:active,
+.menu-button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  transform: scale(0.98);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Acessibilidade: foco visível sem quebrar o visual */
+button:focus-visible,
+.btn:focus-visible,
+.menu-button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+}

@@ -1,0 +1,26 @@
+html, body {
+    width: 1200px; 
+    overflow-x: hidden; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+  }
+  
+  img {
+    max-width: 100%; 
+    height: auto; 
+  }
+  
+  body, h1, h2, h3, p {
+    font-size: 100%; 
+    line-height: normal; 
+  }
+  
+  .flex-container, .grid-container {
+    display: block; 
+  }
+  
