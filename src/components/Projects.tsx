@@ -145,6 +145,96 @@ const Projects: React.FC = () => {
   const postsRailRef = useRef<HTMLDivElement>(null);
   const videosRailRef = useRef<HTMLDivElement>(null);
 
+  const dragStateRef = useRef<{
+    isDragging: boolean;
+    startX: number;
+    scrollLeft: number;
+    moved: boolean;
+    pointerId: number | null;
+    rail: HTMLDivElement | null;
+  }>({
+    isDragging: false,
+    startX: 0,
+    scrollLeft: 0,
+    moved: false,
+    pointerId: null,
+    rail: null,
+  });
+
+  const handleRailPointerDown = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    const rail = event.currentTarget;
+
+    dragStateRef.current = {
+      isDragging: true,
+      startX: event.clientX,
+      scrollLeft: rail.scrollLeft,
+      moved: false,
+      pointerId: event.pointerId,
+      rail,
+    };
+
+    rail.setPointerCapture(event.pointerId);
+    rail.classList.add("is-dragging");
+  };
+
+  const handleRailPointerMove = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
+    const dragState = dragStateRef.current;
+
+    if (!dragState.isDragging || dragState.rail !== event.currentTarget) {
+      return;
+    }
+
+    const distance = event.clientX - dragState.startX;
+
+    if (Math.abs(distance) > 5) {
+      dragState.moved = true;
+    }
+
+    event.currentTarget.scrollLeft =
+      dragState.scrollLeft - distance;
+  };
+
+  const finishRailDrag = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
+    const dragState = dragStateRef.current;
+    const rail = event.currentTarget;
+
+    if (!dragState.isDragging || dragState.rail !== rail) {
+      return;
+    }
+
+    dragState.isDragging = false;
+    rail.classList.remove("is-dragging");
+
+    if (rail.hasPointerCapture(event.pointerId)) {
+      rail.releasePointerCapture(event.pointerId);
+    }
+
+    window.setTimeout(() => {
+      dragStateRef.current.moved = false;
+      dragStateRef.current.pointerId = null;
+      dragStateRef.current.rail = null;
+    }, 0);
+  };
+
+  const handleRailClickCapture = (
+    event: React.MouseEvent<HTMLDivElement>
+  ) => {
+    if (!dragStateRef.current.moved) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
   const [activeTab, setActiveTab] =
     useState<ProjectTab>("posts");
 
@@ -340,6 +430,16 @@ const Projects: React.FC = () => {
             <div
               ref={postsRailRef}
               className="portfolio-projects-rail"
+              onPointerDown={handleRailPointerDown}
+              onPointerMove={handleRailPointerMove}
+              onPointerUp={finishRailDrag}
+              onPointerCancel={finishRailDrag}
+              onClickCapture={handleRailClickCapture}
+              style={{
+                touchAction: "pan-y",
+                cursor: "grab",
+                userSelect: "none",
+              }}
             >
               {postProjects.map((project) => (
                 <button
@@ -430,6 +530,16 @@ const Projects: React.FC = () => {
             <div
               ref={videosRailRef}
               className="portfolio-projects-rail videos-projects-rail"
+              onPointerDown={handleRailPointerDown}
+              onPointerMove={handleRailPointerMove}
+              onPointerUp={finishRailDrag}
+              onPointerCancel={finishRailDrag}
+              onClickCapture={handleRailClickCapture}
+              style={{
+                touchAction: "pan-y",
+                cursor: "grab",
+                userSelect: "none",
+              }}
             >
               {videoProjects.map((video) => (
                 <button
