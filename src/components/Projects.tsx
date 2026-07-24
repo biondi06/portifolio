@@ -1,4 +1,5 @@
 import React, {
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -184,9 +185,8 @@ const Projects: React.FC = () => {
     setSelectedImageIndex(0);
   };
 
-  const changeImage = (
-    direction: "previous" | "next"
-  ) => {
+  const changeImage = useCallback(
+  (direction: "previous" | "next") => {
     if (!selectedPost) return;
 
     const total = selectedPost.images.length;
@@ -198,7 +198,9 @@ const Projects: React.FC = () => {
 
       return (current - 1 + total) % total;
     });
-  };
+  },
+  [selectedPost]
+);
 
   useEffect(() => {
     const modalOpen =
@@ -242,7 +244,7 @@ const Projects: React.FC = () => {
         handleKeyDown
       );
     };
-  }, [selectedPost, selectedVideo]);
+  }, [selectedPost, selectedVideo, changeImage]);
 
   return (
     <section
