@@ -7,10 +7,12 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import RevealController from "./components/RevealController";
 
 const App: React.FC = () => (
   <>
     <Background />
+    <RevealController />
     <Dock />
     <main>
       <Hero />
@@ -21,4 +23,5 @@ const App: React.FC = () => (
     </main>
   </>
 );
+
 export default App;
