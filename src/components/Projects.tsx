@@ -237,8 +237,6 @@ const Projects: React.FC = () => {
 
     const rail = event.currentTarget;
 
-    suppressNextClickRef.current = false;
-
     dragStateRef.current = {
       isDragging: true,
       startX: event.clientX,
@@ -247,7 +245,6 @@ const Projects: React.FC = () => {
       rail,
     };
 
-    rail.setPointerCapture(event.pointerId);
     rail.classList.add("is-dragging");
   };
 
@@ -287,28 +284,22 @@ const Projects: React.FC = () => {
     }
 
     suppressNextClickRef.current = dragState.moved;
-
-    dragStateRef.current = {
-      isDragging: false,
-      startX: 0,
-      scrollLeft: 0,
-      moved: false,
-      rail: null,
-    };
-
+    dragState.isDragging = false;
     rail.classList.remove("is-dragging");
 
-    if (rail.hasPointerCapture(event.pointerId)) {
-      rail.releasePointerCapture(event.pointerId);
-    }
+    window.setTimeout(() => {
+      suppressNextClickRef.current = false;
+      dragStateRef.current.moved = false;
+      dragStateRef.current.rail = null;
+    }, 0);
   };
 
-  const handleRailClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!suppressNextClickRef.current) return;
+  const handleCardClick = (action: () => void) => {
+    if (suppressNextClickRef.current || dragStateRef.current.moved) {
+      return;
+    }
 
-    event.preventDefault();
-    event.stopPropagation();
-    suppressNextClickRef.current = false;
+    action();
   };
 
   const scrollRail = (
@@ -378,7 +369,6 @@ const Projects: React.FC = () => {
     onPointerMove: handleRailPointerMove,
     onPointerUp: finishRailDrag,
     onPointerCancel: finishRailDrag,
-    onClickCapture: handleRailClickCapture,
   };
 
   return (
@@ -421,7 +411,7 @@ const Projects: React.FC = () => {
                 type="button"
                 className="portfolio-project-card project-carousel-card"
                 key={project.id}
-                onClick={() => openPost(project)}
+                onClick={() => handleCardClick(() => openPost(project))}
               >
                 <img src={project.images[0]} alt={`Capa de ${project.title}`} loading="lazy" draggable={false} />
 
@@ -481,7 +471,7 @@ const Projects: React.FC = () => {
                 type="button"
                 className="portfolio-video-card"
                 key={video.id}
-                onClick={() => setSelectedVideo(video)}
+                onClick={() => handleCardClick(() => setSelectedVideo(video))}
               >
                 {video.cover ? (
                   <img src={video.cover} alt={`Capa de ${video.title}`} loading="lazy" draggable={false} />
@@ -538,7 +528,7 @@ const Projects: React.FC = () => {
                 type="button"
                 className="portfolio-story-card"
                 key={story.id}
-                onClick={() => setSelectedStory(story)}
+                onClick={() => handleCardClick(() => setSelectedStory(story))}
               >
                 <img src={story.image} alt={story.title} loading="lazy" draggable={false} />
                 <span className="video-card-copy">
