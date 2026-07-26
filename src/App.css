@@ -3319,3 +3319,121 @@ h2 {
         border-radius: 17px;
     }
 }
+
+/* =========================================================
+   AJUSTE FINAL — DEGRADÊ LATERAL E TOQUE NO MOBILE
+   ========================================================= */
+.portfolio-projects-fade {
+    top: 14px;
+    bottom: 32px;
+    width: clamp(24px, 3.2vw, 46px);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+
+    border-radius: 18px;
+
+    transition:
+        opacity 0.24s ease,
+        visibility 0.24s ease;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.75) 7%,
+            #000 15%,
+            #000 85%,
+            rgba(0, 0, 0, 0.75) 93%,
+            transparent 100%
+        );
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.75) 7%,
+            #000 15%,
+            #000 85%,
+            rgba(0, 0, 0, 0.75) 93%,
+            transparent 100%
+        );
+}
+
+.portfolio-projects-fade.is-visible {
+    opacity: 0.72;
+    visibility: visible;
+    transform: none;
+}
+
+.portfolio-projects-fade-left {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 8, 17, 0.68) 0%,
+            rgba(3, 8, 17, 0.34) 42%,
+            rgba(3, 8, 17, 0.10) 72%,
+            transparent 100%
+        );
+}
+
+.portfolio-projects-fade-right {
+    background:
+        linear-gradient(
+            270deg,
+            rgba(3, 8, 17, 0.68) 0%,
+            rgba(3, 8, 17, 0.34) 42%,
+            rgba(3, 8, 17, 0.10) 72%,
+            transparent 100%
+        );
+}
+
+.portfolio-projects-rail > button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .portfolio-projects-rail {
+        touch-action: pan-x pan-y;
+    }
+
+    .portfolio-project-card,
+    .portfolio-video-card,
+    .portfolio-story-card {
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 720px) {
+    .portfolio-projects-fade {
+        top: 12px;
+        bottom: 28px;
+        width: 24px;
+        border-radius: 14px;
+    }
+
+    .portfolio-projects-fade.is-visible {
+        opacity: 0.52;
+    }
+
+    .portfolio-projects-fade-left {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(3, 8, 17, 0.52) 0%,
+                rgba(3, 8, 17, 0.20) 48%,
+                transparent 100%
+            );
+    }
+
+    .portfolio-projects-fade-right {
+        background:
+            linear-gradient(
+                270deg,
+                rgba(3, 8, 17, 0.52) 0%,
+                rgba(3, 8, 17, 0.20) 48%,
+                transparent 100%
+            );
+    }
+}

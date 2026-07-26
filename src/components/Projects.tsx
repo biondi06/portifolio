@@ -171,6 +171,8 @@ const Projects: React.FC = () => {
     rail: null,
   });
 
+  const suppressNextClickRef = useRef(false);
+
   const [selectedPost, setSelectedPost] = useState<PostProject | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState<VideoProject | null>(null);
@@ -235,6 +237,8 @@ const Projects: React.FC = () => {
 
     const rail = event.currentTarget;
 
+    suppressNextClickRef.current = false;
+
     dragStateRef.current = {
       isDragging: true,
       startX: event.clientX,
@@ -243,6 +247,7 @@ const Projects: React.FC = () => {
       rail,
     };
 
+    rail.setPointerCapture(event.pointerId);
     rail.classList.add("is-dragging");
   };
 
@@ -281,17 +286,29 @@ const Projects: React.FC = () => {
       return;
     }
 
-    dragState.isDragging = false;
+    suppressNextClickRef.current = dragState.moved;
+
+    dragStateRef.current = {
+      isDragging: false,
+      startX: 0,
+      scrollLeft: 0,
+      moved: false,
+      rail: null,
+    };
+
     rail.classList.remove("is-dragging");
+
+    if (rail.hasPointerCapture(event.pointerId)) {
+      rail.releasePointerCapture(event.pointerId);
+    }
   };
 
   const handleRailClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!dragStateRef.current.moved) return;
+    if (!suppressNextClickRef.current) return;
 
     event.preventDefault();
     event.stopPropagation();
-    dragStateRef.current.moved = false;
-    dragStateRef.current.rail = null;
+    suppressNextClickRef.current = false;
   };
 
   const scrollRail = (
@@ -404,13 +421,7 @@ const Projects: React.FC = () => {
                 type="button"
                 className="portfolio-project-card project-carousel-card"
                 key={project.id}
-                onPointerUp={(event) => {
-                  if (event.pointerType === "mouse" && !dragStateRef.current.moved) openPost(project);
-                }}
-                onClick={(event) => {
-                  const nativeEvent = event.nativeEvent as PointerEvent;
-                  if (nativeEvent.pointerType !== "mouse") openPost(project);
-                }}
+                onClick={() => openPost(project)}
               >
                 <img src={project.images[0]} alt={`Capa de ${project.title}`} loading="lazy" draggable={false} />
 
@@ -470,13 +481,7 @@ const Projects: React.FC = () => {
                 type="button"
                 className="portfolio-video-card"
                 key={video.id}
-                onPointerUp={(event) => {
-                  if (event.pointerType === "mouse" && !dragStateRef.current.moved) setSelectedVideo(video);
-                }}
-                onClick={(event) => {
-                  const nativeEvent = event.nativeEvent as PointerEvent;
-                  if (nativeEvent.pointerType !== "mouse") setSelectedVideo(video);
-                }}
+                onClick={() => setSelectedVideo(video)}
               >
                 {video.cover ? (
                   <img src={video.cover} alt={`Capa de ${video.title}`} loading="lazy" draggable={false} />
@@ -533,13 +538,7 @@ const Projects: React.FC = () => {
                 type="button"
                 className="portfolio-story-card"
                 key={story.id}
-                onPointerUp={(event) => {
-                  if (event.pointerType === "mouse" && !dragStateRef.current.moved) setSelectedStory(story);
-                }}
-                onClick={(event) => {
-                  const nativeEvent = event.nativeEvent as PointerEvent;
-                  if (nativeEvent.pointerType !== "mouse") setSelectedStory(story);
-                }}
+                onClick={() => setSelectedStory(story)}
               >
                 <img src={story.image} alt={story.title} loading="lazy" draggable={false} />
                 <span className="video-card-copy">
