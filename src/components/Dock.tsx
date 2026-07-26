@@ -1,9 +1,11 @@
 import React,{useEffect,useRef,useState} from "react";
 import {HomeRounded,PersonRounded,BoltRounded,ViewQuiltRounded,MailRounded} from "@mui/icons-material";
-const items=[
- ["home","Home",<HomeRounded/>],["sobre","Sobre",<PersonRounded/>],
- ["habilidades","Habilidades",<BoltRounded/>],["projetos","Projetos",<ViewQuiltRounded/>],
- ["contato","Contato",<MailRounded/>]
+const items = [
+  ["home", "Home", <HomeRounded />],
+  ["projetos", "Projetos", <ViewQuiltRounded />],
+  ["habilidades", "Habilidades", <BoltRounded />],
+  ["sobre", "Sobre", <PersonRounded />],
+  ["contato", "Contato", <MailRounded />],
 ] as const;
 const Dock:React.FC=()=>{
  const [active,setActive]=useState("home"),[hidden,setHidden]=useState(false);

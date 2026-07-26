@@ -1,4 +1,5 @@
 import React from "react";
+import curriculumPdf from "../assets/Curriculo-Gustavo-Molina.pdf";
 
 import {
   EmailRounded,
@@ -42,8 +43,7 @@ const contacts = [
 ];
 
 const Contact: React.FC = () => {
-  const curriculumPath =
-    `${process.env.PUBLIC_URL}/Curriculo-Gustavo-Molina.pdf`;
+  const curriculumPath = curriculumPdf;
 
   return (
     <section id="contato" className="section contact">

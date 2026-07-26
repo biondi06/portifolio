@@ -1906,7 +1906,8 @@ h2 {
 
     cursor: grab;
     user-select: none;
-    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
 
     overscroll-behavior-x: contain;
 }
@@ -3134,5 +3135,33 @@ h2 {
 
         width: 40px;
         height: 40px;
+    }
+}
+
+/* AJUSTES DE INTERAÇÃO DOS PROJETOS */
+.portfolio-projects-rail > button,
+.portfolio-projects-rail img {
+    -webkit-user-drag: none;
+}
+
+.project-modal-stage,
+.project-modal-stage img {
+    visibility: visible;
+    opacity: 1;
+}
+
+.project-modal-arrow {
+    pointer-events: auto;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .portfolio-projects-rail {
+        cursor: auto;
+        touch-action: pan-x pan-y;
+        scroll-snap-type: x proximity;
+    }
+
+    .portfolio-projects-rail.is-dragging {
+        cursor: auto;
     }
 }

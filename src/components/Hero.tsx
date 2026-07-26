@@ -12,8 +12,8 @@ const Hero: React.FC = () => (
 
       <a
         className="hero-scroll reveal"
-        href="#sobre"
-        aria-label="Ir para a seção Sobre mim"
+        href="#projetos"
+        aria-label="Ir para a seção Projetos"
       >
         <KeyboardArrowDownRounded />
       </a>

@@ -150,23 +150,20 @@ const Projects: React.FC = () => {
     startX: number;
     scrollLeft: number;
     moved: boolean;
-    pointerId: number | null;
     rail: HTMLDivElement | null;
   }>({
     isDragging: false,
     startX: 0,
     scrollLeft: 0,
     moved: false,
-    pointerId: null,
     rail: null,
   });
 
   const handleRailPointerDown = (
     event: React.PointerEvent<HTMLDivElement>
   ) => {
-    if (event.pointerType === "mouse" && event.button !== 0) {
-      return;
-    }
+    // No celular, deixamos o navegador cuidar do gesto nativo.
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
 
     const rail = event.currentTarget;
 
@@ -175,7 +172,6 @@ const Projects: React.FC = () => {
       startX: event.clientX,
       scrollLeft: rail.scrollLeft,
       moved: false,
-      pointerId: event.pointerId,
       rail,
     };
 
@@ -188,18 +184,25 @@ const Projects: React.FC = () => {
   ) => {
     const dragState = dragStateRef.current;
 
-    if (!dragState.isDragging || dragState.rail !== event.currentTarget) {
+    if (
+      event.pointerType !== "mouse" ||
+      !dragState.isDragging ||
+      dragState.rail !== event.currentTarget
+    ) {
       return;
     }
 
     const distance = event.clientX - dragState.startX;
 
-    if (Math.abs(distance) > 5) {
+    if (Math.abs(distance) > 10) {
       dragState.moved = true;
     }
 
-    event.currentTarget.scrollLeft =
-      dragState.scrollLeft - distance;
+    if (dragState.moved) {
+      event.preventDefault();
+      event.currentTarget.scrollLeft =
+        dragState.scrollLeft - distance;
+    }
   };
 
   const finishRailDrag = (
@@ -208,7 +211,11 @@ const Projects: React.FC = () => {
     const dragState = dragStateRef.current;
     const rail = event.currentTarget;
 
-    if (!dragState.isDragging || dragState.rail !== rail) {
+    if (
+      event.pointerType !== "mouse" ||
+      !dragState.isDragging ||
+      dragState.rail !== rail
+    ) {
       return;
     }
 
@@ -218,12 +225,6 @@ const Projects: React.FC = () => {
     if (rail.hasPointerCapture(event.pointerId)) {
       rail.releasePointerCapture(event.pointerId);
     }
-
-    window.setTimeout(() => {
-      dragStateRef.current.moved = false;
-      dragStateRef.current.pointerId = null;
-      dragStateRef.current.rail = null;
-    }, 0);
   };
 
   const handleRailClickCapture = (
@@ -233,6 +234,9 @@ const Projects: React.FC = () => {
 
     event.preventDefault();
     event.stopPropagation();
+
+    dragStateRef.current.moved = false;
+    dragStateRef.current.rail = null;
   };
 
   const [activeTab, setActiveTab] =
@@ -436,7 +440,6 @@ const Projects: React.FC = () => {
               onPointerCancel={finishRailDrag}
               onClickCapture={handleRailClickCapture}
               style={{
-                touchAction: "pan-y",
                 cursor: "grab",
                 userSelect: "none",
               }}
@@ -536,7 +539,6 @@ const Projects: React.FC = () => {
               onPointerCancel={finishRailDrag}
               onClickCapture={handleRailClickCapture}
               style={{
-                touchAction: "pan-y",
                 cursor: "grab",
                 userSelect: "none",
               }}
