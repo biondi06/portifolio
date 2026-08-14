@@ -3319,3 +3319,155 @@ h2 {
         border-radius: 17px;
     }
 }
+
+/* =========================================================
+   PROJETOS — MOTION + STORY CARROSSEL (08/2026)
+   ========================================================= */
+
+.motion-projects-rail {
+    align-items: stretch;
+}
+
+.portfolio-motion-card {
+    position: relative;
+    flex: 0 0 auto;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 26px;
+    color: inherit;
+    text-align: left;
+    background: rgba(255,255,255,.04);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.1),
+        0 22px 50px rgba(0,0,0,.26);
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition:
+        transform .42s cubic-bezier(.19,1,.22,1),
+        border-color .3s ease,
+        box-shadow .35s ease;
+}
+
+.portfolio-motion-card.motion-vertical {
+    width: clamp(210px,18vw,270px);
+    min-width: clamp(210px,18vw,270px);
+    aspect-ratio: 9 / 16;
+}
+
+.portfolio-motion-card.motion-portrait {
+    width: clamp(245px,21vw,315px);
+    min-width: clamp(245px,21vw,315px);
+    aspect-ratio: 4 / 5;
+}
+
+.portfolio-motion-card.motion-horizontal {
+    width: clamp(340px,34vw,520px);
+    min-width: clamp(340px,34vw,520px);
+    aspect-ratio: 16 / 9;
+}
+
+.portfolio-motion-card:hover {
+    transform: translateY(-8px) scale(1.025);
+    border-color: rgba(87,191,255,.5);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.16),
+        0 30px 65px rgba(0,0,0,.36),
+        0 0 38px rgba(41,151,255,.17);
+}
+
+.portfolio-motion-card > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    pointer-events: none;
+    transition:
+        transform .55s cubic-bezier(.19,1,.22,1),
+        filter .35s ease;
+}
+
+.portfolio-motion-card:hover > img {
+    transform: scale(1.045);
+    filter: brightness(.72);
+}
+
+.story-modal-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #000;
+}
+
+.story-modal-stage > img {
+    width: 100%;
+    max-height: 74vh;
+    display: block;
+    object-fit: contain;
+    border-radius: 20px;
+    background: #000;
+}
+
+.story-modal-stage .project-modal-arrow-left {
+    left: 10px;
+}
+
+.story-modal-stage .project-modal-arrow-right {
+    right: 10px;
+}
+
+.video-modal-content.video-format-portrait {
+    width: min(620px, 100%);
+}
+
+.video-modal-content.video-format-horizontal {
+    width: min(1050px, 100%);
+}
+
+.video-modal-content.video-format-horizontal video {
+    max-height: 70vh;
+}
+
+@media (max-width: 720px) {
+    .portfolio-motion-card.motion-vertical {
+        width: min(66vw,240px);
+        min-width: min(66vw,240px);
+    }
+
+    .portfolio-motion-card.motion-portrait {
+        width: min(72vw,280px);
+        min-width: min(72vw,280px);
+    }
+
+    .portfolio-motion-card.motion-horizontal {
+        width: min(88vw,420px);
+        min-width: min(88vw,420px);
+    }
+
+    .story-modal-stage > img {
+        max-height: 72vh;
+        border-radius: 17px;
+    }
+}
+
+/* Motion carrossel */
+.motion-carousel-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 22px;
+  background: rgba(0, 0, 0, .28);
+}
+
+.motion-carousel-stage video {
+  width: 100%;
+  max-height: 72vh;
+  display: block;
+  object-fit: contain;
+  background: #000;
+  border-radius: 18px;
+}
