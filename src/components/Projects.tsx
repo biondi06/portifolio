@@ -6,6 +6,11 @@ import {
   CloseRounded,
   CollectionsRounded,
   PlayArrowRounded,
+  GridViewRounded,
+  SmartDisplayRounded,
+  AdsClickRounded,
+  AutoStoriesRounded,
+  AnimationRounded,
 } from "@mui/icons-material";
 
 /* POSTS / CARROSSÉIS */
@@ -92,6 +97,33 @@ import post11_4 from "../assets/projects/trabalhos/11 (4).png";
 import post11_5 from "../assets/projects/trabalhos/11 (5).png";
 import post11_6 from "../assets/projects/trabalhos/11 (6).png";
 import post11_7 from "../assets/projects/trabalhos/11 (7).png";
+
+/* CRIATIVOS DE TRÁFEGO */
+import traffic1_1 from "../assets/projects/TRAFEGOS/1 (1).png";
+import traffic1_2 from "../assets/projects/TRAFEGOS/1 (2).png";
+import traffic1_3 from "../assets/projects/TRAFEGOS/1 (3).png";
+import traffic2_1 from "../assets/projects/TRAFEGOS/2 (1).png";
+import traffic2_2 from "../assets/projects/TRAFEGOS/2 (2).png";
+import traffic2_3 from "../assets/projects/TRAFEGOS/2 (3).png";
+import traffic2_4 from "../assets/projects/TRAFEGOS/2 (4).png";
+import traffic3_1 from "../assets/projects/TRAFEGOS/3 (1).png";
+import traffic3_2 from "../assets/projects/TRAFEGOS/3 (2).png";
+import traffic3_3 from "../assets/projects/TRAFEGOS/3 (3).png";
+import traffic3_4 from "../assets/projects/TRAFEGOS/3 (4).png";
+import traffic4_1 from "../assets/projects/TRAFEGOS/4 (1).png";
+import traffic4_2 from "../assets/projects/TRAFEGOS/4 (2).png";
+import traffic4_3 from "../assets/projects/TRAFEGOS/4 (3).png";
+import traffic4_4 from "../assets/projects/TRAFEGOS/4 (4).png";
+import traffic5_1 from "../assets/projects/TRAFEGOS/5 (1).png";
+import traffic5_2 from "../assets/projects/TRAFEGOS/5 (2).png";
+import traffic5_3 from "../assets/projects/TRAFEGOS/5 (3).png";
+import traffic5_4 from "../assets/projects/TRAFEGOS/5 (4).png";
+import traffic6_1 from "../assets/projects/TRAFEGOS/6 (1).png";
+import traffic6_2 from "../assets/projects/TRAFEGOS/6 (2).png";
+import traffic6_3 from "../assets/projects/TRAFEGOS/6 (3).png";
+import traffic6_4 from "../assets/projects/TRAFEGOS/6 (4).png";
+import traffic7_1 from "../assets/projects/TRAFEGOS/7 (1).png";
+import traffic7_2 from "../assets/projects/TRAFEGOS/7 (2).png";
 
 /* STORIES */
 import story1 from "../assets/projects/storys/1.png";
@@ -182,6 +214,16 @@ const postProjects: PostProject[] = [
   { id: 11, title: "Carrossel 11", images: [post11_1, post11_2, post11_3, post11_4, post11_5, post11_6, post11_7] },
 ];
 
+const trafficProjects: PostProject[] = [
+  { id: 1, title: "Criativo 01", images: [traffic1_1, traffic1_2, traffic1_3] },
+  { id: 2, title: "Criativo 02", images: [traffic2_1, traffic2_2, traffic2_3, traffic2_4] },
+  { id: 3, title: "Criativo 03", images: [traffic3_1, traffic3_2, traffic3_3, traffic3_4] },
+  { id: 4, title: "Criativo 04", images: [traffic4_1, traffic4_2, traffic4_3, traffic4_4] },
+  { id: 5, title: "Criativo 05", images: [traffic5_1, traffic5_2, traffic5_3, traffic5_4] },
+  { id: 6, title: "Criativo 06", images: [traffic6_1, traffic6_2, traffic6_3, traffic6_4] },
+  { id: 7, title: "Criativo 07", images: [traffic7_1, traffic7_2] },
+];
+
 const videoProjects: VideoProject[] = [
   { id: "reel-1", title: "Reel / TikTok 01", source: video1, cover: video1Cover, category: "Reels / TikTok", format: "vertical" },
   { id: "reel-2", title: "Reel / TikTok 02", source: video2, cover: video2Cover, category: "Reels / TikTok", format: "vertical" },
@@ -222,13 +264,14 @@ const storyProjects: StoryProject[] = [
   { id: 8, title: "Story 08", images: [story8] },
 ];
 
-type RailName = "posts" | "videos" | "stories" | "motion";
+type RailName = "posts" | "videos" | "traffic" | "stories" | "motion";
 
 type RailFadeState = Record<RailName, { left: boolean; right: boolean }>;
 
 const Projects: React.FC = () => {
   const postsRailRef = useRef<HTMLDivElement>(null);
   const videosRailRef = useRef<HTMLDivElement>(null);
+  const trafficRailRef = useRef<HTMLDivElement>(null);
   const storiesRailRef = useRef<HTMLDivElement>(null);
   const motionRailRef = useRef<HTMLDivElement>(null);
 
@@ -245,6 +288,8 @@ const Projects: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<PostProject | null>(null);
   const [selectedPostIndex, setSelectedPostIndex] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState<VideoProject | null>(null);
+  const [selectedTraffic, setSelectedTraffic] = useState<PostProject | null>(null);
+  const [selectedTrafficIndex, setSelectedTrafficIndex] = useState(0);
   const [selectedMotionCarousel, setSelectedMotionCarousel] = useState<MotionCarouselProject | null>(null);
   const [selectedMotionIndex, setSelectedMotionIndex] = useState(0);
   const [selectedStory, setSelectedStory] = useState<StoryProject | null>(null);
@@ -253,6 +298,7 @@ const Projects: React.FC = () => {
   const [railFades, setRailFades] = useState<RailFadeState>({
     posts: { left: false, right: false },
     videos: { left: false, right: false },
+    traffic: { left: false, right: false },
     stories: { left: false, right: false },
     motion: { left: false, right: false },
   });
@@ -278,6 +324,7 @@ const Projects: React.FC = () => {
     const rails: Array<[RailName, HTMLDivElement | null]> = [
       ["posts", postsRailRef.current],
       ["videos", videosRailRef.current],
+      ["traffic", trafficRailRef.current],
       ["stories", storiesRailRef.current],
       ["motion", motionRailRef.current],
     ];
@@ -364,6 +411,8 @@ const Projects: React.FC = () => {
   const closeModal = () => {
     setSelectedPost(null);
     setSelectedVideo(null);
+    setSelectedTraffic(null);
+    setSelectedTrafficIndex(0);
     setSelectedMotionCarousel(null);
     setSelectedMotionIndex(0);
     setSelectedStory(null);
@@ -376,6 +425,12 @@ const Projects: React.FC = () => {
     const total = selectedPost.images.length;
     setSelectedPostIndex((current) => direction === "next" ? (current + 1) % total : (current - 1 + total) % total);
   }, [selectedPost]);
+
+  const changeTrafficImage = useCallback((direction: "previous" | "next") => {
+    if (!selectedTraffic) return;
+    const total = selectedTraffic.images.length;
+    setSelectedTrafficIndex((current) => direction === "next" ? (current + 1) % total : (current - 1 + total) % total);
+  }, [selectedTraffic]);
 
   const changeMotionVideo = useCallback((direction: "previous" | "next") => {
     if (!selectedMotionCarousel) return;
@@ -392,7 +447,7 @@ const Projects: React.FC = () => {
   }, [selectedStory]);
 
   useEffect(() => {
-    const modalOpen = Boolean(selectedPost || selectedVideo || selectedStory);
+    const modalOpen = Boolean(selectedPost || selectedVideo || selectedTraffic || selectedMotionCarousel || selectedStory);
     document.body.style.overflow = modalOpen ? "hidden" : "";
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -402,6 +457,11 @@ const Projects: React.FC = () => {
       if (selectedPost) {
         if (event.key === "ArrowRight") changePostImage("next");
         if (event.key === "ArrowLeft") changePostImage("previous");
+      }
+
+      if (selectedTraffic) {
+        if (event.key === "ArrowRight") changeTrafficImage("next");
+        if (event.key === "ArrowLeft") changeTrafficImage("previous");
       }
 
       if (selectedStory && selectedStory.images.length > 1) {
@@ -415,7 +475,7 @@ const Projects: React.FC = () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedPost, selectedVideo, selectedMotionCarousel, selectedStory, changePostImage, changeStoryImage]);
+  }, [selectedPost, selectedVideo, selectedMotionCarousel, selectedStory, changePostImage, changeTrafficImage, changeStoryImage]);
 
   const railInteractionProps = {
     onPointerDown: handleRailPointerDown,
@@ -443,7 +503,7 @@ const Projects: React.FC = () => {
 
       <div className="portfolio-projects-catalog">
         <div className="portfolio-projects-row-header">
-          <div><small>Social media</small><h3>Posts e carrosséis</h3></div>
+          <div className="portfolio-category-title"><span className="portfolio-category-icon"><GridViewRounded /></span><span><small>Social media</small><h3>Posts e carrosséis</h3></span></div>
           <div className="portfolio-projects-controls">
             <button type="button" onClick={() => scrollRail(postsRailRef.current, "left")} aria-label="Ver trabalhos anteriores"><ChevronLeftRounded /></button>
             <button type="button" onClick={() => scrollRail(postsRailRef.current, "right")} aria-label="Ver próximos trabalhos"><ChevronRightRounded /></button>
@@ -478,7 +538,7 @@ const Projects: React.FC = () => {
 
       <div className="portfolio-projects-catalog">
         <div className="portfolio-projects-row-header">
-          <div><small>Conteúdo vertical</small><h3>Reels e TikTok</h3></div>
+          <div className="portfolio-category-title"><span className="portfolio-category-icon"><SmartDisplayRounded /></span><span><small>Conteúdo vertical</small><h3>Reels e TikTok</h3></span></div>
           <div className="portfolio-projects-controls">
             <button type="button" onClick={() => scrollRail(videosRailRef.current, "left")} aria-label="Ver vídeos anteriores"><ChevronLeftRounded /></button>
             <button type="button" onClick={() => scrollRail(videosRailRef.current, "right")} aria-label="Ver próximos vídeos"><ChevronRightRounded /></button>
@@ -502,7 +562,34 @@ const Projects: React.FC = () => {
 
       <div className="portfolio-projects-catalog">
         <div className="portfolio-projects-row-header">
-          <div><small>Instagram</small><h3>Stories</h3></div>
+          <div className="portfolio-category-title"><span className="portfolio-category-icon"><AdsClickRounded /></span><span><small>Performance</small><h3>Criativos de tráfego</h3></span></div>
+          <div className="portfolio-projects-controls">
+            <button type="button" onClick={() => scrollRail(trafficRailRef.current, "left")} aria-label="Ver criativos anteriores"><ChevronLeftRounded /></button>
+            <button type="button" onClick={() => scrollRail(trafficRailRef.current, "right")} aria-label="Ver próximos criativos"><ChevronRightRounded /></button>
+          </div>
+        </div>
+
+        <div className="portfolio-projects-rail-wrapper">
+          <div ref={trafficRailRef} className="portfolio-projects-rail traffic-projects-rail" onScroll={(event) => updateRailFades("traffic", event.currentTarget)} {...railInteractionProps}>
+            {trafficProjects.map((project) => (
+              <button type="button" className="portfolio-project-card project-carousel-card traffic-project-card" key={project.id} onClick={() => handleCardClick(() => { setSelectedTraffic(project); setSelectedTrafficIndex(0); })}>
+                <img src={project.images[0]} alt={`Capa de ${project.title}`} loading="lazy" draggable={false} />
+                <span className="project-pages-badge"><CollectionsRounded />{project.images.length} formatos</span>
+                <span className="portfolio-project-overlay">
+                  <span><small>Tráfego pago</small><strong>{project.title}</strong></span>
+                  <span className="portfolio-project-expand"><AdsClickRounded /></span>
+                </span>
+              </button>
+            ))}
+          </div>
+          {renderFade("traffic", "left")}
+          {renderFade("traffic", "right")}
+        </div>
+      </div>
+
+      <div className="portfolio-projects-catalog">
+        <div className="portfolio-projects-row-header">
+          <div className="portfolio-category-title"><span className="portfolio-category-icon"><AutoStoriesRounded /></span><span><small>Instagram</small><h3>Stories</h3></span></div>
           <div className="portfolio-projects-controls">
             <button type="button" onClick={() => scrollRail(storiesRailRef.current, "left")} aria-label="Ver stories anteriores"><ChevronLeftRounded /></button>
             <button type="button" onClick={() => scrollRail(storiesRailRef.current, "right")} aria-label="Ver próximos stories"><ChevronRightRounded /></button>
@@ -534,7 +621,7 @@ const Projects: React.FC = () => {
 
       <div className="portfolio-projects-catalog">
         <div className="portfolio-projects-row-header">
-          <div><small>Animação</small><h3>Motion Design</h3></div>
+          <div className="portfolio-category-title"><span className="portfolio-category-icon"><AnimationRounded /></span><span><small>Animação</small><h3>Motion Design</h3></span></div>
           <div className="portfolio-projects-controls">
             <button type="button" onClick={() => scrollRail(motionRailRef.current, "left")} aria-label="Ver motions anteriores"><ChevronLeftRounded /></button>
             <button type="button" onClick={() => scrollRail(motionRailRef.current, "right")} aria-label="Ver próximos motions"><ChevronRightRounded /></button>
@@ -593,6 +680,26 @@ const Projects: React.FC = () => {
             </div>
             <div className="project-modal-dots">
               {selectedPost.images.map((_, index) => <button type="button" key={index} className={selectedPostIndex === index ? "active" : ""} onClick={() => setSelectedPostIndex(index)} aria-label={`Abrir página ${index + 1}`} />)}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {selectedTraffic && (
+        <div className="project-modal" role="dialog" aria-modal="true" aria-label={selectedTraffic.title} onMouseDown={(event) => { if (event.target === event.currentTarget) closeModal(); }}>
+          <div className="project-modal-content traffic-modal-content">
+            <button type="button" className="project-modal-close" onClick={closeModal} aria-label="Fechar criativo"><CloseRounded /></button>
+            <div className="project-modal-stage">
+              <button type="button" className="project-modal-arrow project-modal-arrow-left" onClick={() => changeTrafficImage("previous")} aria-label="Formato anterior"><ChevronLeftRounded /></button>
+              <img src={selectedTraffic.images[selectedTrafficIndex]} alt={`${selectedTraffic.title}, formato ${selectedTrafficIndex + 1}`} />
+              <button type="button" className="project-modal-arrow project-modal-arrow-right" onClick={() => changeTrafficImage("next")} aria-label="Próximo formato"><ChevronRightRounded /></button>
+            </div>
+            <div className="project-modal-footer">
+              <div><small>Criativos de tráfego • Variações</small><strong>{selectedTraffic.title}</strong></div>
+              <span className="project-modal-counter">{selectedTrafficIndex + 1} / {selectedTraffic.images.length}</span>
+            </div>
+            <div className="project-modal-dots">
+              {selectedTraffic.images.map((_, index) => <button type="button" key={index} className={selectedTrafficIndex === index ? "active" : ""} onClick={() => setSelectedTrafficIndex(index)} aria-label={`Abrir formato ${index + 1}`} />)}
             </div>
           </div>
         </div>
