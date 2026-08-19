@@ -475,7 +475,16 @@ const Projects: React.FC = () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedPost, selectedVideo, selectedMotionCarousel, selectedStory, changePostImage, changeTrafficImage, changeStoryImage]);
+  }, [
+    selectedPost,
+    selectedVideo,
+    selectedTraffic,
+    selectedMotionCarousel,
+    selectedStory,
+    changePostImage,
+    changeTrafficImage,
+    changeStoryImage,
+  ]);
 
   const railInteractionProps = {
     onPointerDown: handleRailPointerDown,
